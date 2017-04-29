@@ -2,16 +2,17 @@ import { css, StyleSheet } from 'aphrodite';
 import React, { PropTypes } from 'react';
 import { Link as RouterLink, NavLink } from 'react-router-dom';
 
-import aphroditePropType from '../utils/aphroditePropType';
+import aphroditePropType from '../../utils/aphroditePropType';
+import { green } from '../../utils/colors';
 
 const sx = StyleSheet.create({
   active: {
-    color: '#1B70E0',
+    color: green,
   },
   root: {
     color: 'black',
     textDecoration: 'none',
-  }
+  },
 });
 
 function buildClass(styles, className) {
@@ -33,7 +34,9 @@ const Link = ({
   if (to) {
     return nav
       ? <NavLink
-          activeClassName={ buildClass([sx.active, activeStyles], activeClassName) }
+          activeClassName={
+            buildClass([sx.active, activeStyles], activeClassName)
+          }
           className={ calculatedClassName }
           to={ to }
           { ...rest }>

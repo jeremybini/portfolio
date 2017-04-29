@@ -2,7 +2,7 @@ import { css, StyleSheet } from 'aphrodite';
 import React, { PropTypes } from 'react';
 
 import Link from './Link';
-import screenSize from '../utils/screenSize';
+import screenSize from '../../utils/screenSize';
 
 const sx = StyleSheet.create({
   container: {

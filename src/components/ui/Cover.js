@@ -1,9 +1,10 @@
 import { StyleSheet } from 'aphrodite';
 import React from 'react';
 
-import aphroditePropType from '../utils/aphroditePropType';
+import aphroditePropType from '../../utils/aphroditePropType';
 
-import Flex from './Flex';
+import Div from './Div';
+
 const sx = StyleSheet.create({
   root: {
     height: '100%',
@@ -15,7 +16,7 @@ const sx = StyleSheet.create({
 });
 
 const Cover = ({ styles, ...rest }) => (
-  <Flex styles={ [sx.root, styles] } { ...rest }></Flex>
+  <Div styles={ [sx.root, styles] } { ...rest }></Div>
 );
 
 Cover.propTypes = {

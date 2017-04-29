@@ -1,0 +1,12 @@
+.slick-slider {
+  margin-bottom: 50px;
+}
+
+.slick-list {
+  padding: 30px 0;
+}
+
+.slick-initialized .slick-slide {
+  display: flex;
+  padding: 0 20px;
+}

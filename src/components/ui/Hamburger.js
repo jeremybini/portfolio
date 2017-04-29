@@ -35,15 +35,19 @@ const buildHamburgerClass = ({ isActive, type, styles }) => {
 }
 
 const Hamburger = ({ activeColor, color, isActive, onClick, styles, type }) => (
-  <div onClick={ onClick } style={ { display: 'inline-block' } }>
-    <button
-      className={ buildHamburgerClass({ isActive, type, styles }) }
-      type="button">
-      <span className="hamburger-box">
-        <span className={ `hamburger-inner ${buildInnerClass({ activeColor, color, isActive })}` }></span>
-      </span>
-    </button>
-  </div>
+  <button
+    className={ buildHamburgerClass({ isActive, type, styles }) }
+    onClick={ onClick }
+    type="button">
+    <span className="hamburger-box">
+      <span
+        className={
+          'hamburger-inner ' +
+          buildInnerClass({ activeColor, color, isActive })
+        }
+      />
+    </span>
+  </button>
 );
 
 Hamburger.propTypes = {

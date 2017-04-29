@@ -1,7 +1,9 @@
-import { StyleSheet, css } from 'aphrodite';
+import { StyleSheet } from 'aphrodite';
 import React, { PropTypes } from 'react';
 
-import aphroditePropType from '../utils/aphroditePropType';
+import aphroditePropType from '../../utils/aphroditePropType';
+
+import StyledComponent from './StyledComponent';
 
 export const calcFlexStyles = (style) => {
   if (style === 'end' || style === 'start') {
@@ -13,18 +15,18 @@ export const calcFlexStyles = (style) => {
 
 const Flex = ({
   align,
-  className,
-  component,
   direction,
+  grow,
   justify,
   styles,
   wrap,
   ...rest
 }) => {
   const sx = StyleSheet.create({
-    root: {
+    flexRoot: {
       alignItems: calcFlexStyles(align),
       display: 'flex',
+      flexGrow: grow ? Number(grow) : 0,
       flexDirection: direction,
       flexWrap: wrap ? 'wrap' : 'nowrap',
       justifyContent: calcFlexStyles(justify),
@@ -32,15 +34,7 @@ const Flex = ({
     },
   });
 
-  const generatedClassName = `${className} ${css(
-    sx.root,
-    !!styles && styles,
-  )}`;
-
-  return React.createElement(component, {
-    className: generatedClassName,
-    ...rest,
-  });
+  return <StyledComponent styles={ [sx.flexRoot, styles] } { ...rest } />
 };
 
 Flex.defaultProps = {
@@ -56,7 +50,14 @@ Flex.propTypes = {
   align: PropTypes.oneOf(['baseline', 'center', 'end', 'start', 'stretch']),
   component: PropTypes.node,
   direction: PropTypes.oneOf(['row', 'column']),
-  justify: PropTypes.oneOf(['center', 'end', 'space-around', 'space-between', 'start']),
+  grow: PropTypes.oneOfType([PropTypes.bool, PropTypes.number]),
+  justify: PropTypes.oneOf([
+    'center',
+    'end',
+    'space-around',
+    'space-between',
+    'start'
+  ]),
   styles: aphroditePropType,
   wrap: PropTypes.bool,
 };

@@ -1,8 +1,9 @@
 import { StyleSheet } from 'aphrodite';
 import React, { Component, PropTypes } from 'react';
 
-import ImageLoader from '../images/ImageLoader';
+import ImageLoader from '../../containers/ImageLoader';
 
+import BackgroundImage from './BackgroundImage';
 import Cover from './Cover';
 
 const sx = StyleSheet.create({
@@ -20,10 +21,8 @@ const sx = StyleSheet.create({
 });
 
 class LazyBackgroundImage extends Component {
-  constructor() {
-    super();
-    this.state = { imageIsLoaded: false };
-    this.handleImageLoaded = this.handleImageLoaded.bind(this);
+  state = {
+    imageIsLoaded: false
   }
 
   handleImageLoaded() {
@@ -38,15 +37,14 @@ class LazyBackgroundImage extends Component {
           ? [sx.overlay, sx.overlayLoaded]
           : [sx.overlay, sx.overlayLoading]
         } />
-        <Cover style={ {
-          background: `url(${this.props.source}) no-repeat center center fixed`,
-          backgroundSize: 'cover',
-        } }>
-          <ImageLoader
-            onLoad={ this.handleImageLoaded }
-            source={  this.props.source }
-            style={ { display: 'none'} }
-          />
+        <Cover>
+          <BackgroundImage image={ this.props.source } size='cover'>
+            <ImageLoader
+              onLoad={ this.handleImageLoaded.bind(this) }
+              source={  this.props.source }
+              style={ { display: 'none'} }
+            />
+          </BackgroundImage>
         </Cover>
       </div>
     )

@@ -1,34 +1,58 @@
 import React, { PropTypes } from 'react';
+import sizeMe from 'react-sizeme';
 import {
-  enterExitStyle,
   layout,
   measureItems,
-  makeResponsive,
-  SpringGrid
+  CSSGrid
 } from 'react-stonecutter';
 
-const { enter, entered, exit } = enterExitStyle.simple;
-const Grid = makeResponsive(measureItems(SpringGrid, { measureImages: true }), {
-  maxWidth: 1920,
-});
+const Grid = measureItems(CSSGrid, { measureImages: true });
 
-const GridCentered = (props) => (
-  <div style={ { margin: 'auto' } }>
-    <Grid
-      component="ul"
-      columns={ 5 }
-      columnWidth={ 300 }
-      duration={ 1000 }
-      enter={ enter }
-      entered={ entered }
-      exit={ exit }
-      gutterWidth={ 5 }
-      gutterHeight={ 1 }
-      layout={ layout.pinterest }
-      springConfig={ { stiffness: 170, damping: 26 } }
-      { ...props }
-      />
-  </div>
-);
+const GridCentered = ({
+  columnWidth,
+  duration,
+  isMobile = false,
+  minPadding,
+  size,
+  ...rest
+}) => {
+  const { columns: numColumns, gutterWidth } = rest;
+  const { width } = size;
 
-export default GridCentered;
+  const maxColumnWidth = columnWidth + 2 * gutterWidth >= width
+                           ? width - minPadding - 2 * gutterWidth
+                           : columnWidth
+
+  const columns = numColumns ||
+                  Math.floor(
+                    (width - minPadding) /
+                    (maxColumnWidth + gutterWidth)
+                  );
+
+  duration = !isMobile && duration;
+
+  return (
+    <div style={ { margin: 'auto' } }>
+      <Grid
+        columns={ columns }
+        columnWidth={ maxColumnWidth }
+        duration={ duration }
+        { ...rest } />
+    </div>
+  )
+};
+
+GridCentered.defaultProps = {
+  component: 'ul',
+  duration: 1000,
+  gutterHeight: 1,
+  gutterWidth: 5,
+  layout: layout.pinterest,
+  minPadding: 0,
+}
+
+GridCentered.propTypes = {
+  columnWidth: PropTypes.number.isRequired,
+}
+
+export default sizeMe()(GridCentered);
