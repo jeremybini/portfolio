@@ -1,7 +1,7 @@
-import React from 'react';
+import React from 'react'
 
-import StyledComponent from './StyledComponent';
+import StyledComponent from './StyledComponent'
 
 const Span = (props) => <StyledComponent component='span' { ...props } />
 
-export default Span;
+export default Span

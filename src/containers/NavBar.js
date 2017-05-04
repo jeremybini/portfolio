@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
+import React, { Component } from 'react'
+import { withRouter } from 'react-router-dom'
 
-import ScrollingNavBar from '../components/ScrollingNavBar';
+import ScrollingNavBar from '../components/ScrollingNavBar'
 
-import ScrollWrapper from './ScrollWrapper';
+import ScrollWrapper from './ScrollWrapper'
 
-const isPastBreakpoint = () => window.scrollY > 40;
+const isPastBreakpoint = () => window.scrollY > 40
 
 class NavBar extends Component {
   state = {
@@ -16,13 +16,13 @@ class NavBar extends Component {
     if (this.state.isScrolled && !isPastBreakpoint()) {
       return this.setState({
         isScrolled: false,
-      });
+      })
     }
 
     if (!this.state.isScrolled && isPastBreakpoint()) {
       return this.setState({
         isScrolled: true,
-      });
+      })
     }
   }
 
@@ -38,4 +38,4 @@ class NavBar extends Component {
   }
 }
 
-export default withRouter(NavBar);
+export default withRouter(NavBar)

@@ -1,11 +1,11 @@
-import { StyleSheet } from 'aphrodite';
-import React, { PropTypes } from 'react';
+import { StyleSheet } from 'aphrodite'
+import React, { PropTypes } from 'react'
 
-import ColumnCentered from '../../components/ui/ColumnCentered';
-import Div from '../../components/ui/Div';
-import P from  '../../components/ui/P';
-import { grayLight, greenDark } from '../../utils/colors';
-import screenSize from '../../utils/screenSize';
+import ColumnCentered from '../../components/ui/ColumnCentered'
+import Div from '../../components/ui/Div'
+import P from  '../../components/ui/P'
+import { grayLight, greenDark } from '../../utils/colors'
+import screenSize from '../../utils/screenSize'
 
 const sx = StyleSheet.create({
   projectTechList: {
@@ -25,7 +25,7 @@ const sx = StyleSheet.create({
     display: 'inline-block',
     width: '200px',
   }
-});
+})
 
 export const ProjectTechList = ({ technologies }) => (
   <ColumnCentered styles={ sx.projectTechList }>
@@ -42,11 +42,11 @@ export const ProjectTechList = ({ technologies }) => (
       }
     </Div>
   </ColumnCentered>
-);
+)
 
 ProjectTechList.propTypes = {
   technologies: PropTypes.arrayOf(PropTypes.string),
 }
 
-export default ProjectTechList;
+export default ProjectTechList
 

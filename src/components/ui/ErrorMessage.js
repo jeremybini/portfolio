@@ -1,10 +1,10 @@
-import { StyleSheet } from 'aphrodite';
-import React, { PropTypes } from 'react';
+import { StyleSheet } from 'aphrodite'
+import React, { PropTypes } from 'react'
 
-import Column from './Column';
-import ColumnCentered from './ColumnCentered';
-import Heading from './Heading';
-import Img from './Img';
+import Column from './Column'
+import ColumnCentered from './ColumnCentered'
+import Heading from './Heading'
+import Img from './Img'
 
 const sx = StyleSheet.create({
   errorContainer: {
@@ -13,7 +13,7 @@ const sx = StyleSheet.create({
   errorImage: {
     maxWidth: '100%',
   },
-});
+})
 
 const ErrorMessage = ({ code, message }) => (
   <Column styles={ sx.errorContainer }>
@@ -22,17 +22,17 @@ const ErrorMessage = ({ code, message }) => (
       <Img src={ `https://http.cat/${code}.jpg` } styles={ sx.errorImage } />
     </ColumnCentered>
   </Column>
-);
+)
 
 ErrorMessage.defaultProps = {
   code: 500,
   message: 'Uh-oh. Something went wrong.',
-};
+}
 
 ErrorMessage.propTypes = {
   code: PropTypes.number,
   message: PropTypes.string,
-};
+}
 
-export default ErrorMessage;
+export default ErrorMessage
 

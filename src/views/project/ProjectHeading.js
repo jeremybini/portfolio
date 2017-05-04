@@ -1,14 +1,16 @@
-import { StyleSheet } from 'aphrodite';
-import React, { PropTypes } from 'react';
+import { StyleSheet } from 'aphrodite'
+import React, { PropTypes } from 'react'
 
 
-import Div from '../../components/ui/Div';
-import Heading from '../../components/ui/Heading';
-import Row from '../../components/ui/Row';
-import { gray } from '../../utils/colors';
-import screenSize from '../../utils/screenSize';
+import Div from '../../components/ui/Div'
+import Heading from '../../components/ui/Heading'
+import Row from '../../components/ui/Row'
+import { gray } from '../../utils/colors'
+import screenSize from '../../utils/screenSize'
 
-const { arrayOf, shape, string } = PropTypes;
+import { rolePropType } from './ProjectRole'
+
+const { arrayOf, shape, string } = PropTypes
 
 const sx = StyleSheet.create({
   projectHeading: {
@@ -45,7 +47,7 @@ const sx = StyleSheet.create({
   projectTitleRow: {
     marginBottom: '10px',
   }
-});
+})
 
 export const ProjectHeading = ({ project }) => (
   <Div styles={ sx.projectHeading }>
@@ -54,17 +56,20 @@ export const ProjectHeading = ({ project }) => (
       <Div styles={ [sx.projectTitleRow, sx.projectRoles] }>
         {
           // slight hack for adding | between all roles
-          project.roles.join('@@|@@').split('@@').map((role, index) =>
-            <Heading
-              key={ role + index }
-              styles={[
-                sx.projectTitleEntry,
-                role === '|' && sx.projectRoleDivider,
-              ]}
-              weight='4'>
-              { role }
-            </Heading>
-          )
+          project.roles.map(r => r.title)
+            .join('@@|@@')
+            .split('@@')
+            .map((role, index) =>
+              <Heading
+                key={ role + index }
+                styles={[
+                  sx.projectTitleEntry,
+                  role === '|' && sx.projectRoleDivider,
+                ]}
+                weight='4'>
+                { role }
+              </Heading>
+            )
         }
       </Div>
       <Div styles={ sx.projectTitleRow }>
@@ -76,14 +81,14 @@ export const ProjectHeading = ({ project }) => (
       </Div>
     </Row>
   </Div>
-);
+)
 
 ProjectHeading.propTypes = {
   project: shape({
     when: string.isRequired,
-    roles: arrayOf(string).isRequired,
+    roles: arrayOf(rolePropType).isRequired,
     title: string.isRequired,
   }).isRequired,
 }
 
-export default ProjectHeading;
+export default ProjectHeading

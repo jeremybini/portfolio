@@ -1,7 +1,7 @@
-import { css } from 'aphrodite';
-import React, { PropTypes } from 'react';
+import { css } from 'aphrodite'
+import React, { PropTypes } from 'react'
 
-import aphroditePropType from '../../utils/aphroditePropType';
+import aphroditePropType from '../../utils/aphroditePropType'
 
 const Img = ({ alt, className = '', src, styles, ...rest }) => (
   <img
@@ -10,7 +10,7 @@ const Img = ({ alt, className = '', src, styles, ...rest }) => (
     src={ src }
     { ...rest }
   />
-);
+)
 
 Img.propTypes = {
   alt: PropTypes.string.isRequired,
@@ -18,4 +18,4 @@ Img.propTypes = {
   styles: aphroditePropType,
 }
 
-export default Img;
+export default Img

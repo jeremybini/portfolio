@@ -1,17 +1,17 @@
-import React from 'react';
+import React from 'react'
 import {
   BrowserRouter as Router,
   Route,
   Switch,
-} from 'react-router-dom';
+} from 'react-router-dom'
 
-import PageWithNav from './containers/PageWithNav';
-import Home from './views/home/Home';
-import NotFound from './views/notFound/NotFound';
-import Photos from './views/photos/Photos';
-import Project from './views/project/Project';
-import Projects from './views/projects/Projects';
-import Videos from './views/videos/Videos';
+import PageWithNav from './containers/PageWithNav'
+import Home from './views/home/Home'
+import NotFound from './views/notFound/NotFound'
+import Photos from './views/photos/Photos'
+import Project from './views/project/Project'
+import Projects from './views/projects/Projects'
+import Videos from './views/videos/Videos'
 
 const Routes = () => (
   <Router>
@@ -28,6 +28,6 @@ const Routes = () => (
       </PageWithNav>
     </Switch>
   </Router>
-);
+)
 
-export default Routes;
+export default Routes

@@ -1,17 +1,17 @@
-import { css, StyleSheet } from 'aphrodite';
-import Carousel from 'react-slick';
-import ImageZoom from 'react-medium-image-zoom';
+import { css, StyleSheet } from 'aphrodite'
+import Carousel from 'react-slick'
+import ImageZoom from 'react-medium-image-zoom'
 
-import React, { Component, PropTypes } from 'react';
+import React, { Component, PropTypes } from 'react'
 
-import Div from '../../components/ui/Div';
-import Row from '../../components/ui/Row';
-import aphroditePropType from '../../utils/aphroditePropType';
-import screenSize from '../../utils/screenSize';
+import Div from '../../components/ui/Div'
+import Row from '../../components/ui/Row'
+import aphroditePropType from '../../utils/aphroditePropType'
+import screenSize from '../../utils/screenSize'
 
 import './ProjectCarousel.css'
 
-const { arrayOf, shape, string } = PropTypes;
+const { arrayOf, shape, string } = PropTypes
 
 const defaultOptions = {
   accessibility: true,
@@ -53,7 +53,7 @@ const sx = StyleSheet.create({
       lineHeight: '70vh',
     }
   },
-});
+})
 
 class ProjectCarousel extends Component {
   static defaultProps = {
@@ -74,21 +74,21 @@ class ProjectCarousel extends Component {
   // however, triggering resize also pauses the autoplay
   // calling slickNext resumes the autoplay
   componentWillMount() {
-    const { options } = this.props;
-    const speed = options.autoplaySpeed || defaultOptions.autoplaySpeed;
+    const { options } = this.props
+    const speed = options.autoplaySpeed || defaultOptions.autoplaySpeed
 
     setTimeout(() => {
-      window.dispatchEvent(new Event('resize'));
-      setTimeout(() => this.refs.slider.slickNext(), speed);
-    }, 0);
+      window.dispatchEvent(new Event('resize'))
+      setTimeout(() => this.refs.slider.slickNext(), speed)
+    }, 0)
   }
 
   render() {
-    const { images, options, styles } = this.props;
+    const { images, options, styles } = this.props
     const carouselOptions = {
       ...defaultOptions,
       ...options,
-    };
+    }
 
     return (
       <Row grow>
@@ -111,8 +111,8 @@ class ProjectCarousel extends Component {
           }
         </Carousel>
       </Row>
-    );
+    )
   }
-};
+}
 
-export default ProjectCarousel;
+export default ProjectCarousel

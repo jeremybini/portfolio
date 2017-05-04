@@ -1,17 +1,17 @@
-import { StyleSheet } from 'aphrodite';
-import React, { PropTypes } from 'react';
+import { StyleSheet } from 'aphrodite'
+import React, { PropTypes } from 'react'
 
-import aphroditePropType from '../../utils/aphroditePropType';
+import aphroditePropType from '../../utils/aphroditePropType'
 
-import StyledComponent from './StyledComponent';
+import StyledComponent from './StyledComponent'
 
 export const calcFlexStyles = (style) => {
   if (style === 'end' || style === 'start') {
-    return `flex-${style}`;
+    return `flex-${style}`
   }
 
-  return style;
-};
+  return style
+}
 
 const Flex = ({
   align,
@@ -32,10 +32,10 @@ const Flex = ({
       justifyContent: calcFlexStyles(justify),
       position: 'relative',
     },
-  });
+  })
 
   return <StyledComponent styles={ [sx.flexRoot, styles] } { ...rest } />
-};
+}
 
 Flex.defaultProps = {
   align: 'stretch',
@@ -44,7 +44,7 @@ Flex.defaultProps = {
   direction: 'row',
   justify: 'start',
   styles: [],
-};
+}
 
 Flex.propTypes = {
   align: PropTypes.oneOf(['baseline', 'center', 'end', 'start', 'stretch']),
@@ -60,6 +60,6 @@ Flex.propTypes = {
   ]),
   styles: aphroditePropType,
   wrap: PropTypes.bool,
-};
+}
 
-export default Flex;
+export default Flex

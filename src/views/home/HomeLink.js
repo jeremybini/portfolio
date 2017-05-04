@@ -1,8 +1,8 @@
-import { css, StyleSheet } from 'aphrodite';
-import React, { PropTypes } from 'react';
+import { css, StyleSheet } from 'aphrodite'
+import React, { PropTypes } from 'react'
 
-import Link from './Link';
-import screenSize from '../../utils/screenSize';
+import Link from '../../components/ui/Link'
+import screenSize from '../../utils/screenSize'
 
 const sx = StyleSheet.create({
   container: {
@@ -12,6 +12,7 @@ const sx = StyleSheet.create({
   },
   link: {
     color: 'white',
+    fontSize: '22px',
     letterSpacing: '3px',
     lineSpacing: '10px',
     margin: '3px',
@@ -36,17 +37,17 @@ const sx = StyleSheet.create({
       },
     },
   },
-});
+})
 
 const HomeLink = (props) => (
   <div className={ css(sx.container) }>
     <Link styles={ sx.link } {...props}></Link>
   </div>
-);
+)
 
 HomeLink.propTypes = {
   children: PropTypes.node.isRequired,
   to: PropTypes.string.isRequired,
-};
+}
 
-export default HomeLink;
+export default HomeLink

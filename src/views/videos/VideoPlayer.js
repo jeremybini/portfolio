@@ -1,16 +1,16 @@
-import { StyleSheet } from 'aphrodite';
-import React, { PropTypes } from 'react';
-import LazyLoad from 'react-lazyload';
+import { StyleSheet } from 'aphrodite'
+import React, { PropTypes } from 'react'
+import LazyLoad from 'react-lazyload'
 
-import Card from '../../components/ui/Card';
-import ColumnCentered from '../../components/ui/ColumnCentered';
-import Div from '../../components/ui/Div';
-import { grayLight } from '../../utils/colors';
-import screenSize from '../../utils/screenSize';
+import Card from '../../components/ui/Card'
+import ColumnCentered from '../../components/ui/ColumnCentered'
+import Div from '../../components/ui/Div'
+import { grayLight } from '../../utils/colors'
+import screenSize from '../../utils/screenSize'
 
-import './VideoPlayer.css';
+import './VideoPlayer.css'
 
-const { shape, string } = PropTypes;
+const { shape, string } = PropTypes
 
 const sx = StyleSheet.create({
   iframe: {
@@ -46,24 +46,24 @@ const sx = StyleSheet.create({
       padding: '20px',
     }
   }
-});
+})
 
 const VideoPlayer = ({ video, ...rest }) => {
-  const { description, embed, name } = video;
-  const { height, html, width } = embed;
-  const aspectRatio = height / width;
-  const windowWidth = window.innerWidth;
-  const windowHeight = window.innerHeight;
-  const offset = windowHeight * 0.1;
+  const { description, embed, name } = video
+  const { height, html, width } = embed
+  const aspectRatio = height / width
+  const windowWidth = window.innerWidth
+  const windowHeight = window.innerHeight
+  const offset = windowHeight * 0.1
 
-  let loaderHeight;
+  let loaderHeight
 
-  const isDesktop = windowWidth >= screenSize.widths.desktop.min;
+  const isDesktop = windowWidth >= screenSize.widths.desktop.min
 
   if (isDesktop) {
     loaderHeight = (windowWidth / 2) * aspectRatio
   } else {
-    loaderHeight = windowWidth * aspectRatio;
+    loaderHeight = windowWidth * aspectRatio
   }
 
   /*/
@@ -91,7 +91,7 @@ const VideoPlayer = ({ video, ...rest }) => {
       </LazyLoad>
     </div>
   )
-};
+}
 
 export const videoPropType = shape({
   id: string.isRequired,
@@ -105,4 +105,4 @@ VideoPlayer.propTypes = {
   video: videoPropType.isRequired,
 }
 
-export default VideoPlayer;
+export default VideoPlayer

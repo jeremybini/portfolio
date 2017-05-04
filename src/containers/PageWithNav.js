@@ -1,12 +1,12 @@
-import React, { Component, PropTypes } from 'react';
-import { withRouter } from 'react-router-dom';
-import { connect } from 'react-redux';
+import React, { Component, PropTypes } from 'react'
+import { withRouter } from 'react-router-dom'
+import { connect } from 'react-redux'
 
-import PageContent from '../components/ui/PageContent';
-import ModalRoot from '../containers/ModalRoot';
-import { closeModal } from '../reducers/modal';
+import PageContent from '../components/ui/PageContent'
+import ModalRoot from '../containers/ModalRoot'
+import { closeModal } from '../reducers/modal'
 
-import NavBar from './NavBar';
+import NavBar from './NavBar'
 
 class PageWithNav extends Component {
   static propTypes = {
@@ -23,7 +23,7 @@ class PageWithNav extends Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.location.pathname !== this.props.location.pathname) {
-      this.props.closeModal();
+      this.props.closeModal()
     }
   }
 
@@ -43,4 +43,4 @@ class PageWithNav extends Component {
 export default connect(
   state => state.modal,
   { closeModal },
-)(withRouter(PageWithNav));
+)(withRouter(PageWithNav))

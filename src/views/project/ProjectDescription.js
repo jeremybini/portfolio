@@ -1,15 +1,16 @@
-import { StyleSheet } from 'aphrodite';
-import React, { PropTypes } from 'react';
+import { StyleSheet } from 'aphrodite'
+import React, { PropTypes } from 'react'
 
+import Column from '../../components/ui/Column'
+import Link from '../../components/ui/Link'
+import P from '../../components/ui/P'
+import Row from '../../components/ui/Row'
+import { green, greenDark } from '../../utils/colors'
+import screenSize from '../../utils/screenSize'
 
-import Column from '../../components/ui/Column';
-import Link from '../../components/ui/Link';
-import P from '../../components/ui/P';
-import Row from '../../components/ui/Row';
-import { green, greenDark } from '../../utils/colors';
-import screenSize from '../../utils/screenSize';
+import ProjectRole, { rolePropType } from './ProjectRole'
 
-const { arrayOf, shape, string } = PropTypes;
+const { arrayOf, shape, string } = PropTypes
 
 const sx = StyleSheet.create({
   projectDescription: {
@@ -40,9 +41,9 @@ const sx = StyleSheet.create({
   projectLinks: {
     paddingBottom: '30px',
   },
-});
+})
 
-export const ProjectDescription = ({ description, links }) => (
+export const ProjectDescription = ({ description, links, roles }) => (
   <Column styles={ sx.projectDescription }>
     {
       description.split('\n').map(section =>
@@ -50,6 +51,13 @@ export const ProjectDescription = ({ description, links }) => (
           <P styles={ sx.projectDescriptionBlock }>{ section }</P>
         </Row>
       )
+    }
+    {
+      roles && roles.length && roles.some(r => r.duties)
+        ? roles.map(role =>
+          <ProjectRole key={ role.title } role={ role } />
+        )
+        : null
     }
     {
       links && links.length
@@ -68,7 +76,7 @@ export const ProjectDescription = ({ description, links }) => (
         : null
     }
   </Column>
-);
+)
 
 ProjectDescription.propTypes = {
   description: string.isRequired,
@@ -76,6 +84,7 @@ ProjectDescription.propTypes = {
     text: string.isRequired,
     url: string.isRequired,
   })),
+  roles: arrayOf(rolePropType),
 }
 
-export default ProjectDescription;
+export default ProjectDescription

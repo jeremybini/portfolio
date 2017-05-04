@@ -1,14 +1,14 @@
-import { css, StyleSheet } from 'aphrodite';
-import React, { PropTypes } from 'react';
+import { css, StyleSheet } from 'aphrodite'
+import React, { PropTypes } from 'react'
 
-import aphroditePropType from '../../utils/aphroditePropType';
+import aphroditePropType from '../../utils/aphroditePropType'
 
 /**
  *  Animated search icon as seen on
  *  https://codepen.io/michalstocki/pen/BKPOzj
 /*/
 
-const transitionTime = '200ms';
+const transitionTime = '200ms'
 
 const sx = StyleSheet.create({
   button: {
@@ -63,7 +63,7 @@ const sx = StyleSheet.create({
       content: '" "',
       width: '12px',
       height: '3px',
-      backgroundColor: 'black', // fix
+      backgroundColor: 'black',
       top: 0,
       left: 0,
       position: 'absolute',
@@ -75,7 +75,7 @@ const sx = StyleSheet.create({
       content: '" "',
       width: '0px',
       height: '3px',
-      backgroundColor: 'black', // fix
+      backgroundColor: 'black',
       top: '0',
       left: '0',
       position: 'absolute',
@@ -83,16 +83,16 @@ const sx = StyleSheet.create({
       transform: 'translate(9px, 7px) rotate(135deg)',
     },
     ':hover': {
-      borderColor: 'gray', // fix
+      borderColor: 'gray',
       ':before': {
-        backgroundColor: 'gray' // fix
+        backgroundColor: 'gray'
       },
       ':after': {
-        backgroundColor: 'gray' // fix
+        backgroundColor: 'gray'
       }
     },
   },
-});
+})
 
 const initialIconStyle = {
   height: '20px',
@@ -118,7 +118,7 @@ const SearchIcon = ({
         style={ initialIconStyle }
         className={ css(sx.icon, isActive && sx.iconActive) }></div>
     </button>
-  );
+  )
 }
 
 SearchIcon.propTypes = {
@@ -127,4 +127,4 @@ SearchIcon.propTypes = {
   styles: aphroditePropType,
 }
 
-export default SearchIcon;
+export default SearchIcon

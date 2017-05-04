@@ -1,12 +1,12 @@
-import { StyleSheet } from 'aphrodite';
-import React, { PropTypes } from 'react';
+import { StyleSheet } from 'aphrodite'
+import React, { PropTypes } from 'react'
 
-import { hexToRGB, gray, grayDark, green, red } from '../utils/colors';
-import screenSize from '../utils/screenSize';
+import { hexToRGB, gray, grayDark, green, red } from '../utils/colors'
+import screenSize from '../utils/screenSize'
 
-import Div from './ui/Div';
-import Link from './ui/Link';
-import Row from './ui/Row';
+import Div from './ui/Div'
+import Link from './ui/Link'
+import Row from './ui/Row'
 
 export const navLinks = [
   {
@@ -26,7 +26,7 @@ export const navLinks = [
     target: '_blank',
     text: 'Contact',
   },
-];
+]
 
 const sx = StyleSheet.create({
   navbar: {
@@ -36,8 +36,8 @@ const sx = StyleSheet.create({
     opacity: 0.95,
     padding: '10px',
     position: 'fixed',
-    transition: 'box-shadow 0.5s ease, ' +
-                'padding-right 0.5s ease',
+    transition: 'box-shadow 0.5s ease',// +
+                // 'padding-right 0.25s ease',
     width: '100%',
     zIndex: '300',
   },
@@ -60,14 +60,14 @@ const sx = StyleSheet.create({
   },
   link: {
     color: 'black',
-    transition: '0.2s',
     ':hover': {
       color: red,
-    }
+    },
+    fontSize: 19,
   },
   name: {
     fontFamily: '"Raleway", sans-serif',
-    fontSize: 20,
+    fontSize: 23,
     fontWeight: 400,
   },
   nameContainer: {
@@ -79,7 +79,7 @@ const sx = StyleSheet.create({
       paddingRight: 0,
     }
   },
-});
+})
 
 const ScrollingNavBar = ({ isPhotoPage, isScrolled }) => (
   <Row styles={ [
@@ -105,11 +105,11 @@ const ScrollingNavBar = ({ isPhotoPage, isScrolled }) => (
       }
     </Row>
   </Row>
-);
+)
 
 ScrollingNavBar.propTypes = {
   isPhotoPage: PropTypes.bool,
   isScrolled: PropTypes.bool,
 }
 
-export default ScrollingNavBar;
+export default ScrollingNavBar

@@ -1,11 +1,11 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes } from 'react'
 
-import StyledComponent from './StyledComponent';
+import StyledComponent from './StyledComponent'
 
-const weights = [1, 2, 3, 4, 5, 6];
+const weights = [1, 2, 3, 4, 5, 6]
 
 const Heading = ({ weight, ...rest }) =>
-  <StyledComponent component={ `h${weight}` } { ...rest } />;
+  <StyledComponent component={ `h${weight}` } { ...rest } />
 
 Heading.defaultProps = {
   weight: 1
@@ -18,4 +18,4 @@ Heading.propTypes = {
   ]),
 }
 
-export default Heading;
+export default Heading

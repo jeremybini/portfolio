@@ -1,4 +1,4 @@
-import { Component, PropTypes } from 'react';
+import { Component, PropTypes } from 'react'
 
 class ScrollWrapper extends Component {
   static propTypes = {
@@ -6,22 +6,22 @@ class ScrollWrapper extends Component {
   }
 
   constructor(props) {
-    super(props);
+    super(props)
 
-    this.onWindowScroll = props.onWindowScroll.bind(this);
+    this.onWindowScroll = props.onWindowScroll.bind(this)
   }
 
   componentDidMount() {
-    window.addEventListener('scroll', this.onWindowScroll);
+    window.addEventListener('scroll', this.onWindowScroll)
   }
 
   componentWillUnmount() {
-    window.removeEventListener('scroll', this.onWindowScroll);
+    window.removeEventListener('scroll', this.onWindowScroll)
   }
 
   render() {
-    return this.props.children;
+    return this.props.children
   }
 }
 
-export default ScrollWrapper;
+export default ScrollWrapper

@@ -1,12 +1,12 @@
-import React, { Component, PropTypes } from 'react';
-import { findDOMNode } from 'react-dom';
+import React, { Component, PropTypes } from 'react'
+import { findDOMNode } from 'react-dom'
 
 class ImageLoader extends Component {
   componentDidMount() {
-    const img = findDOMNode(this);
+    const img = findDOMNode(this)
 
     if (img.complete) {
-      this.props.onLoad();
+      this.props.onLoad()
     }
   }
 
@@ -25,4 +25,4 @@ ImageLoader.propTypes = {
   source: PropTypes.string.isRequired,
 }
 
-export default ImageLoader;
+export default ImageLoader

@@ -1,15 +1,15 @@
-import { StyleSheet } from 'aphrodite';
-import React, { PropTypes } from 'react';
+import { StyleSheet } from 'aphrodite'
+import React, { PropTypes } from 'react'
 
-import { greenLight } from '../utils/colors';
-import screenSize from '../utils/screenSize';
+import { greenLight } from '../utils/colors'
+import screenSize from '../utils/screenSize'
 
-import ColumnCentered from './ui/ColumnCentered';
-import Link from './ui/Link';
-import Modal from './ui/Modal';
-import Row from './ui/Row';
+import ColumnCentered from './ui/ColumnCentered'
+import Link from './ui/Link'
+import Modal from './ui/Modal'
+import Row from './ui/Row'
 
-import { navLinks } from './ScrollingNavBar';
+import { navLinks } from './ScrollingNavBar'
 
 const sx = StyleSheet.create({
   content: {
@@ -41,7 +41,7 @@ const sx = StyleSheet.create({
     opacity: 0.95,
     visibility: 'visible',
   },
-});
+})
 
 const MobileNavLink = (props) => (
   <Row key={ props.to } styles={ sx.navLink }>
@@ -51,7 +51,7 @@ const MobileNavLink = (props) => (
       styles={ sx.navLinkTag }
       { ...props } />
   </Row>
-);
+)
 
 const NavModal = ({ isOpen, ...rest }) => (
   <Modal styles={ [sx.navModal, isOpen && sx.navModalOpen] } { ...rest }>
@@ -67,10 +67,10 @@ const NavModal = ({ isOpen, ...rest }) => (
       }
     </ColumnCentered>
   </Modal>
-);
+)
 
 NavModal.propTypes = {
   isOpen: PropTypes.bool.isRequired,
 }
 
-export default NavModal;
+export default NavModal

@@ -1,13 +1,13 @@
-import { StyleSheet } from 'aphrodite';
-import React, { PropTypes } from 'react';
-import { withRouter } from 'react-router-dom';
+import { StyleSheet } from 'aphrodite'
+import React, { PropTypes } from 'react'
+import { withRouter } from 'react-router-dom'
 
-import Link from '../../components/ui/Link';
-import Row from '../../components/ui/Row';
-import withProjects from '../../hocs/withProjects';
-import screenSize from '../../utils/screenSize';
+import Link from '../../components/ui/Link'
+import Row from '../../components/ui/Row'
+import withProjects from '../../hocs/withProjects'
+import screenSize from '../../utils/screenSize'
 
-import ProjectCard, { projectPropType } from './ProjectCard';
+import ProjectCard, { projectPropType } from './ProjectCard'
 
 const sx = StyleSheet.create({
   container: {
@@ -37,13 +37,13 @@ const sx = StyleSheet.create({
       padding: '0 30px',
     }
   }
-});
+})
 
 const Projects = ({ match, projects }) => (
   <Row
     wrap
     justify='space-between'
-    styles={ sx.projectList && console.log(match, projects) }>
+    styles={ sx.projectList }>
     {
       projects.map(project =>
         <Row key={ project.title } styles={ sx.container }>
@@ -56,11 +56,11 @@ const Projects = ({ match, projects }) => (
       )
     }
   </Row>
-);
+)
 
 Projects.propTypes = {
   match: PropTypes.object.isRequired,
   projects: PropTypes.arrayOf(projectPropType).isRequired,
 }
 
-export default withRouter(withProjects(Projects));
+export default withRouter(withProjects(Projects))

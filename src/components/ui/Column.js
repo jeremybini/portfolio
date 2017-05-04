@@ -1,7 +1,7 @@
-import React from 'react';
+import React from 'react'
 
-import Flex from './Flex';
+import Flex from './Flex'
 
-const Column = props => <Flex {...props} direction='column' />;
+const Column = props => <Flex {...props} direction='column' />
 
-export default Column;
+export default Column

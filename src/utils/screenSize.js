@@ -18,18 +18,18 @@ const widths = {
   }
 }
 
-const px = width => `${width}px`;
+const px = width => `${width}px`
 
-const MAX_PHONE_WIDTH = px(widths.phone.max);
-const MAX_PHONE_LANDSCAPE_WIDTH = px(widths.phoneLandscape.max);
-const MAX_TABLET_WIDTH = px(widths.tablet.max);
+const MAX_PHONE_WIDTH = px(widths.phone.max)
+const MAX_PHONE_LANDSCAPE_WIDTH = px(widths.phoneLandscape.max)
+const MAX_TABLET_WIDTH = px(widths.tablet.max)
 
-const MIN_DESKTOP_WIDTH = px(widths.desktop.min);
-const MIN_PHONE_LANDSCAPE_WIDTH = px(widths.phoneLandscape.min);
-const MIN_TABLET_WIDTH = px(widths.tablet.min);
+const MIN_DESKTOP_WIDTH = px(widths.desktop.min)
+const MIN_PHONE_LANDSCAPE_WIDTH = px(widths.phoneLandscape.min)
+const MIN_TABLET_WIDTH = px(widths.tablet.min)
 
-const desktopQuery = `@media only screen and (min-width: ${MIN_DESKTOP_WIDTH})`;
-const phoneQuery = `@media only screen and (max-width: ${MAX_PHONE_WIDTH})`;
+const desktopQuery = `@media only screen and (min-width: ${MIN_DESKTOP_WIDTH})`
+const phoneQuery = `@media only screen and (max-width: ${MAX_PHONE_WIDTH})`
 
 // Include all devices smaller than the specified query
 const maxMediaQueries = {

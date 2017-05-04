@@ -1,9 +1,9 @@
-import { css, StyleSheet } from 'aphrodite';
-import React, { PropTypes } from 'react';
-import { Link as RouterLink, NavLink } from 'react-router-dom';
+import { css, StyleSheet } from 'aphrodite'
+import React, { PropTypes } from 'react'
+import { Link as RouterLink, NavLink } from 'react-router-dom'
 
-import aphroditePropType from '../../utils/aphroditePropType';
-import { green } from '../../utils/colors';
+import aphroditePropType from '../../utils/aphroditePropType'
+import { green } from '../../utils/colors'
 
 const sx = StyleSheet.create({
   active: {
@@ -13,10 +13,10 @@ const sx = StyleSheet.create({
     color: 'black',
     textDecoration: 'none',
   },
-});
+})
 
 function buildClass(styles, className) {
-  return `${ css(styles) }${ className ? ` ${className}` : '' }`;
+  return `${ css(styles) }${ className ? ` ${className}` : '' }`
 }
 
 const Link = ({
@@ -29,7 +29,7 @@ const Link = ({
   to,
   ...rest
 }) => {
-  const calculatedClassName = buildClass([sx.root, styles], className);
+  const calculatedClassName = buildClass([sx.root, styles], className)
 
   if (to) {
     return nav
@@ -49,7 +49,7 @@ const Link = ({
   }
 
   return <a className={ calculatedClassName } href={ href } { ...rest }></a>
-};
+}
 
 Link.defaultProps = {
   nav: false,
@@ -60,6 +60,6 @@ Link.propTypes = {
   activeStyles:aphroditePropType,
   nav: PropTypes.bool.isRequired,
   styles: aphroditePropType,
-};
+}
 
-export default Link;
+export default Link

@@ -1,7 +1,7 @@
-import React from 'react';
+import React from 'react'
 
-import StyledComponent from './StyledComponent';
+import StyledComponent from './StyledComponent'
 
 const P = (props) => <StyledComponent component='p' { ...props } />
 
-export default P;
+export default P

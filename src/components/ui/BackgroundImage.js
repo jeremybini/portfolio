@@ -1,7 +1,7 @@
-import { StyleSheet } from 'aphrodite';
-import React, { PropTypes } from 'react';
+import { StyleSheet } from 'aphrodite'
+import React, { PropTypes } from 'react'
 
-import Div from './Div';
+import Div from './Div'
 
 const BackgroundImage = ({
   image,
@@ -20,10 +20,10 @@ const BackgroundImage = ({
       height: '100%',
       width: '100%',
     }
-  });
+  })
 
   return <Div styles={ [sx.root, sx.styles] } { ...rest } />
-};
+}
 
 BackgroundImage.defaultProps = {
   position: 'center',
@@ -35,4 +35,4 @@ BackgroundImage.propTypes = {
   image: PropTypes.string.isRequired
 }
 
-export default BackgroundImage;
+export default BackgroundImage

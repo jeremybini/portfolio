@@ -1,7 +1,7 @@
-import React from 'react';
+import React from 'react'
 
-import Flex from './Flex';
+import Flex from './Flex'
 
-const Row = props => <Flex {...props } direction='row' />;
+const Row = props => <Flex {...props } direction='row' />
 
-export default Row;
+export default Row

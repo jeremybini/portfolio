@@ -1,9 +1,9 @@
-import { StyleSheet } from 'aphrodite';
-import React from 'react';
+import { StyleSheet } from 'aphrodite'
+import React from 'react'
 
-import Div from './Div';
+import Div from './Div'
 
-import { grayExtraDark } from '../../utils/colors';
+import { grayExtraDark } from '../../utils/colors'
 
 const sx = StyleSheet.create({
   root: {
@@ -11,10 +11,10 @@ const sx = StyleSheet.create({
     minHeight: '200px', // temp
     width: '100%',
   }
-});
+})
 
 const Footer = ({ styles, ...rest }) => (
    <Div styles={ [sx.root, styles] } { ...rest } />
-);
+)
 
-export default Footer;
+export default Footer

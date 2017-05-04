@@ -1,8 +1,8 @@
-import { createAction, handleActions } from 'redux-actions';
+import { createAction, handleActions } from 'redux-actions'
 
 /* Actions */
-const CLOSE_MODAL = 'portfolio/modal/CLOSE';
-const TOGGLE_MODAL = 'portfolio/modal/TOGGLE';
+const CLOSE_MODAL = 'portfolio/modal/CLOSE'
+const TOGGLE_MODAL = 'portfolio/modal/TOGGLE'
 
 /* Reducer */
 const initialState = {
@@ -15,13 +15,13 @@ export default handleActions({
   [TOGGLE_MODAL]: (state, action) => ({
     modalType: state.modalType ? null : action.payload.modalType,
   }),
-}, initialState);
+}, initialState)
 
 /* Action Creators */
-export const closeModal = createAction(CLOSE_MODAL);
+export const closeModal = createAction(CLOSE_MODAL)
 
 export const toggleModal =
-  createAction(TOGGLE_MODAL, modalType => ({ modalType }));
+  createAction(TOGGLE_MODAL, modalType => ({ modalType }))
 
 export const modalTypes = {
   NAV: 'NAV',

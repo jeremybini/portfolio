@@ -1,5 +1,5 @@
-import { css, StyleSheet } from 'aphrodite';
-import React, { PropTypes } from 'react';
+import { css, StyleSheet } from 'aphrodite'
+import React, { PropTypes } from 'react'
 
 const buildInnerClass = ({ activeColor, color = 'black', isActive }) => {
   const sx = StyleSheet.create({
@@ -21,17 +21,17 @@ const buildInnerClass = ({ activeColor, color = 'black', isActive }) => {
         backgroundColor: color,
       },
     },
-  });
+  })
 
-  return css( isActive ? sx.active : sx.root );
+  return css( isActive ? sx.active : sx.root )
 }
 
 const buildHamburgerClass = ({ isActive, type, styles }) => {
-  const baseClass = `hamburger ${ type ? `hamburger--${type}` : '' }`;
-  const activeClass = `${ isActive ? 'is-active' : '' }`;
-  const optionalClass = `${ styles ? css(styles) : '' }`;
+  const baseClass = `hamburger ${ type ? `hamburger--${type}` : '' }`
+  const activeClass = `${ isActive ? 'is-active' : '' }`
+  const optionalClass = `${ styles ? css(styles) : '' }`
 
-  return `${baseClass} ${activeClass} ${optionalClass}`;
+  return `${baseClass} ${activeClass} ${optionalClass}`
 }
 
 const Hamburger = ({ activeColor, color, isActive, onClick, styles, type }) => (
@@ -48,11 +48,11 @@ const Hamburger = ({ activeColor, color, isActive, onClick, styles, type }) => (
       />
     </span>
   </button>
-);
+)
 
 Hamburger.propTypes = {
   isActive: PropTypes.bool.isRequired,
   type: PropTypes.string,
-};
+}
 
-export default Hamburger;
+export default Hamburger

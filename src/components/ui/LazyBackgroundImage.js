@@ -1,10 +1,10 @@
-import { StyleSheet } from 'aphrodite';
-import React, { Component, PropTypes } from 'react';
+import { StyleSheet } from 'aphrodite'
+import React, { Component, PropTypes } from 'react'
 
-import ImageLoader from '../../containers/ImageLoader';
+import ImageLoader from '../../containers/ImageLoader'
 
-import BackgroundImage from './BackgroundImage';
-import Cover from './Cover';
+import BackgroundImage from './BackgroundImage'
+import Cover from './Cover'
 
 const sx = StyleSheet.create({
   overlay: {
@@ -18,7 +18,7 @@ const sx = StyleSheet.create({
   overlayLoading: {
     opacity: 1,
   }
-});
+})
 
 class LazyBackgroundImage extends Component {
   state = {
@@ -26,7 +26,7 @@ class LazyBackgroundImage extends Component {
   }
 
   handleImageLoaded() {
-    this.setState({ imageIsLoaded: true });
+    this.setState({ imageIsLoaded: true })
   }
 
   render () {
@@ -55,4 +55,4 @@ LazyBackgroundImage.propType = {
   source: PropTypes.string.isRequired,
 }
 
-export default LazyBackgroundImage;
+export default LazyBackgroundImage

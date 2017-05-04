@@ -1,7 +1,7 @@
-import { PropTypes } from 'react';
+import { PropTypes } from 'react'
 
 /* Aphrodite prop */
-const { array, arrayOf, bool, object, oneOfType } = PropTypes;
+const { array, arrayOf, bool, object, oneOfType } = PropTypes
 
 export default oneOfType([
   arrayOf(
@@ -13,4 +13,4 @@ export default oneOfType([
   ),
   bool,
   object,
-]);
+])

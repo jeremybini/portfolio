@@ -1,16 +1,16 @@
-import { css } from 'aphrodite';
-import React, { PropTypes } from 'react';
+import { css } from 'aphrodite'
+import React, { PropTypes } from 'react'
 
-import aphroditePropTypes from '../../utils/aphroditePropType';
+import aphroditePropTypes from '../../utils/aphroditePropType'
 
 const StyledComponent = ({ className, component, styles, ...rest }) => {
   const generatedClassName =
-    `${className ? `${className} ` : ''}${css(!!styles && styles)}`;
+    `${className ? `${className} ` : ''}${css(!!styles && styles)}`
 
   return React.createElement(component, {
     className: generatedClassName,
     ...rest,
-  });
+  })
 }
 
 StyledComponent.defaultProps = {
@@ -20,6 +20,6 @@ StyledComponent.defaultProps = {
 StyledComponent.propTypes = {
   component: PropTypes.node.isRequired,
   styles: aphroditePropTypes,
-};
+}
 
-export default StyledComponent;
+export default StyledComponent

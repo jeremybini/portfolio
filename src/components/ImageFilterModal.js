@@ -1,19 +1,20 @@
-import { StyleSheet } from 'aphrodite';
-import React from 'react';
-import { connect } from 'react-redux';
+import { StyleSheet } from 'aphrodite'
+import React from 'react'
+import { connect } from 'react-redux'
 
-import { getImageCategories, getImageFilter } from '../reducers';
-import { setImageFilterFromModal } from '../reducers/imageFilter';
-import { hexToRGB, grayExtraDark, greenLight, red } from '../utils/colors';
-import screenSize from '../utils/screenSize';
+import { getImageCategories, getImageFilter } from '../reducers'
+import { setImageFilterFromModal } from '../reducers/images'
+import { hexToRGB, grayExtraDark, greenLight, red } from '../utils/colors'
+import screenSize from '../utils/screenSize'
 
-import ColumnCentered from './ui/ColumnCentered';
-import Div from './ui/Div';
-import Modal from './ui/Modal';
-import Span from './ui/Span';
+import ColumnCentered from './ui/ColumnCentered'
+import Div from './ui/Div'
+import Modal from './ui/Modal'
+import Span from './ui/Span'
 
 const sx = StyleSheet.create({
   filterContent: {
+    height: '100%',
     transition: '0.5s ease',
     transform: 'translateX(300px)',
   },
@@ -53,7 +54,7 @@ const sx = StyleSheet.create({
   visibile: {
     visibility: 'visible',
   }
-});
+})
 
 /*/
  * Styling note:
@@ -110,7 +111,7 @@ const ImageFilterModal = ({
       }
     </ColumnCentered>
   </Modal>
-);
+)
 
 function mapStateToProps(state) {
   return {
@@ -122,4 +123,4 @@ function mapStateToProps(state) {
 export default connect(
   mapStateToProps,
   { setImageFilterFromModal }
-)(ImageFilterModal);
+)(ImageFilterModal)

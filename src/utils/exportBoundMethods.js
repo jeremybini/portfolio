@@ -1,4 +1,4 @@
-import bindKey from 'lodash/bindKey';
+import bindKey from 'lodash/bindKey'
 
 export default function exportBoundMethods(
   thisArg,
@@ -7,5 +7,5 @@ export default function exportBoundMethods(
 ) {
   methodNames.forEach(name =>
     moduleExports[name] = bindKey(thisArg, name)
-  );
+  )
 }

@@ -1,11 +1,11 @@
-import { StyleSheet } from 'aphrodite';
-import React from 'react';
+import { StyleSheet } from 'aphrodite'
+import React from 'react'
 
-import screenSize from '../utils/screenSize';
+import screenSize from '../utils/screenSize'
 
-import Div from './ui/Div';
-import Hamburger from './ui/Hamburger';
-import SearchIcon from './ui/SearchIcon';
+import Div from './ui/Div'
+import Hamburger from './ui/Hamburger'
+import SearchIcon from './ui/SearchIcon'
 
 const sx = StyleSheet.create({
   hamburger: {
@@ -16,7 +16,7 @@ const sx = StyleSheet.create({
   iconContainer: {
     padding: '10px',
     position: 'fixed',
-    transition: 'transform 0.5s ease',
+    // transition: 'transform 0.5s ease',
     zIndex: 500,
   },
   iconActive: {
@@ -33,7 +33,7 @@ const sx = StyleSheet.create({
     transform: 'translate(0, 0)',
     visibility: 'visible',
   }
-});
+})
 
 const ModalControls = ({
   children,
@@ -78,6 +78,6 @@ const ModalControls = ({
     </Div>
     { children }
   </div>
-);
+)
 
-export default ModalControls;
+export default ModalControls

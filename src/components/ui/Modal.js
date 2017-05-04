@@ -1,10 +1,10 @@
-import { StyleSheet } from 'aphrodite';
-import React from 'react';
+import { StyleSheet } from 'aphrodite'
+import React from 'react'
 
-import aphroditePropType from '../../utils/aphroditePropType';
-import { grayExtraDark } from '../../utils/colors';
+import aphroditePropType from '../../utils/aphroditePropType'
+import { grayExtraDark } from '../../utils/colors'
 
-import Cover from './Cover';
+import Cover from './Cover'
 
 const sx = StyleSheet.create({
   modal: {
@@ -16,16 +16,16 @@ const sx = StyleSheet.create({
     width: '100%',
     zIndex: 900,
   },
-});
+})
 
 const Modal = ({ children, styles, ...rest }) => (
   <Cover styles={ [sx.modal, styles] } { ...rest }>
     { children }
   </Cover>
-);
+)
 
 Modal.propTypes = {
   styles: aphroditePropType,
 }
 
-export default Modal;
+export default Modal

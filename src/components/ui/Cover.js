@@ -1,9 +1,9 @@
-import { StyleSheet } from 'aphrodite';
-import React from 'react';
+import { StyleSheet } from 'aphrodite'
+import React from 'react'
 
-import aphroditePropType from '../../utils/aphroditePropType';
+import aphroditePropType from '../../utils/aphroditePropType'
 
-import Div from './Div';
+import Div from './Div'
 
 const sx = StyleSheet.create({
   root: {
@@ -13,14 +13,14 @@ const sx = StyleSheet.create({
     top: 0,
     width: '100%',
   },
-});
+})
 
 const Cover = ({ styles, ...rest }) => (
   <Div styles={ [sx.root, styles] } { ...rest }></Div>
-);
+)
 
 Cover.propTypes = {
   styles: aphroditePropType,
 }
 
-export default Cover;
+export default Cover

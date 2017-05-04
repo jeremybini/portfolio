@@ -1,15 +1,16 @@
-import { css, StyleSheet } from 'aphrodite';
-import React from 'react';
-import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
+import { css, StyleSheet } from 'aphrodite'
+import React from 'react'
+import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup'
 
-import Column from '../../components/ui/Column';
-import ColumnCentered from '../../components/ui/ColumnCentered';
-import Heading from '../../components/ui/Heading';
-import HomeLink from '../../components/ui/HomeLink';
-import Link from '../../components/ui/Link';
-import LazyBackgroundImage from '../../components/ui/LazyBackgroundImage';
-import Row from '../../components/ui/Row';
-import screenSize from '../../utils/screenSize';
+import Column from '../../components/ui/Column'
+import ColumnCentered from '../../components/ui/ColumnCentered'
+import Heading from '../../components/ui/Heading'
+import Link from '../../components/ui/Link'
+import LazyBackgroundImage from '../../components/ui/LazyBackgroundImage'
+import Row from '../../components/ui/Row'
+import screenSize from '../../utils/screenSize'
+
+import HomeLink from './HomeLink'
 
 const sx = StyleSheet.create({
   contentAppear: {
@@ -29,7 +30,7 @@ const sx = StyleSheet.create({
     transition: 'opacity 1500ms ease-in',
   },
   footer: {
-    fontSize: '14px',
+    fontSize: '18px',
     padding: '20px',
     zIndex: 200,
   },
@@ -52,10 +53,6 @@ const sx = StyleSheet.create({
     marginBottom: '100px',
     transition: '4500s ease-in',
     zIndex: 200,
-    h1: {
-      fontSize: '60px',
-      letterSpacing: '1px',
-    }
   },
   homeLinksContainer: {
     [screenSize.max.phoneLandscape]: {
@@ -63,7 +60,7 @@ const sx = StyleSheet.create({
     },
   },
   homeTitle: {
-    fontSize: '36px',
+    fontSize: '40px',
     fontWeight: '300',
   },
   linksAppear: {
@@ -79,16 +76,16 @@ const sx = StyleSheet.create({
   white: {
     color: 'white',
   }
-});
+})
 
-const contentAppear = css(sx.contentAppear);
-const contentAppearActive = css(sx.contentAppearActive);
+const contentAppear = css(sx.contentAppear)
+const contentAppearActive = css(sx.contentAppearActive)
 
-const linksAppear = css(sx.linksAppear);
-const linksAppearActive = css(sx.linksAppearActive);
+const linksAppear = css(sx.linksAppear)
+const linksAppearActive = css(sx.linksAppearActive)
 
-const footerAppear = css(sx.footerAppear);
-const footerAppearActive = css(sx.footerAppearActive);
+const footerAppear = css(sx.footerAppear)
+const footerAppearActive = css(sx.footerAppearActive)
 
 const Home = () => (
   <Column styles={ sx.home }>
@@ -143,5 +140,5 @@ const Home = () => (
   </Column>
 )
 
-export default Home;
+export default Home
 

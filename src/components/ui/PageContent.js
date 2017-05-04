@@ -1,8 +1,8 @@
-import { StyleSheet } from 'aphrodite';
-import React from 'react';
+import { StyleSheet } from 'aphrodite'
+import React from 'react'
 
-import Column from './Column';
-import Footer from './Footer';
+import Column from './Column'
+import Footer from './Footer'
 
 const sx = StyleSheet.create({
   content: {
@@ -11,13 +11,13 @@ const sx = StyleSheet.create({
   page: {
     minHeight: '100vh',
   }
-});
+})
 
 const PageContent = (props) => (
   <Column styles={ sx.page }>
     <Column grow styles={ sx.content } { ...props } />
     <Footer />
   </Column>
-);
+)
 
-export default PageContent;
+export default PageContent

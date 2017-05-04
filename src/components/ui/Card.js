@@ -1,5 +1,5 @@
-import { css, StyleSheet } from 'aphrodite';
-import React from 'react';
+import { css, StyleSheet } from 'aphrodite'
+import React from 'react'
 
 const sx = StyleSheet.create({
   card: {
@@ -10,10 +10,10 @@ const sx = StyleSheet.create({
                '0 2px 2px rgba(66, 68, 68, 0.1)',
     width: '100%',
   }
-});
+})
 
 const Card = ({ styles, ...rest }) => (
    <div className={ css(sx.card, styles) } { ...rest } />
-);
+)
 
-export default Card;
+export default Card

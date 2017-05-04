@@ -1,8 +1,8 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes } from 'react'
 
-import Row from '../../components/ui/Row';
+import Row from '../../components/ui/Row'
 
-import VideoPlayer, { videoPropType } from './VideoPlayer';
+import VideoPlayer, { videoPropType } from './VideoPlayer'
 
 const VideoGallery = ({ videos }) => (
   <Row wrap>
@@ -14,10 +14,10 @@ const VideoGallery = ({ videos }) => (
       )
     }
   </Row>
-);
+)
 
 VideoGallery.propTypes = {
   videos: PropTypes.arrayOf(videoPropType).isRequired
 }
 
-export default VideoGallery;
+export default VideoGallery

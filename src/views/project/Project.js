@@ -1,19 +1,19 @@
-import { StyleSheet } from 'aphrodite';
-import React, { PropTypes } from 'react';
-import { withRouter } from 'react-router-dom';
+import { StyleSheet } from 'aphrodite'
+import React, { PropTypes } from 'react'
+import { withRouter } from 'react-router-dom'
 
-import Card from '../../components/ui/Card';
-import ColumnCentered from '../../components/ui/ColumnCentered';
-import Div from '../../components/ui/Div';
-import Row from '../../components/ui/Row';
-import withCurrentProject from '../../hocs/withCurrentProject';
-import { gray } from '../../utils/colors';
-import screenSize from '../../utils/screenSize';
+import Card from '../../components/ui/Card'
+import ColumnCentered from '../../components/ui/ColumnCentered'
+import Div from '../../components/ui/Div'
+import Row from '../../components/ui/Row'
+import withCurrentProject from '../../hocs/withCurrentProject'
+import { gray } from '../../utils/colors'
+import screenSize from '../../utils/screenSize'
 
-import ProjectCarousel from './ProjectCarousel';
-import ProjectDescription from './ProjectDescription';
-import ProjectHeading from './ProjectHeading';
-import ProjectTechList from './ProjectTechList';
+import ProjectCarousel from './ProjectCarousel'
+import ProjectDescription from './ProjectDescription'
+import ProjectHeading from './ProjectHeading'
+import ProjectTechList from './ProjectTechList'
 
 const sx = StyleSheet.create({
   projectCard: {
@@ -50,7 +50,7 @@ const sx = StyleSheet.create({
       padding: '0 50px',
     }
   },
-});
+})
 
 const Project = ({ project }) => (
   <Div styles={ sx.project }>
@@ -62,7 +62,8 @@ const Project = ({ project }) => (
             <ProjectTechList technologies={ project.technologies } />
             <ProjectDescription
               description={ project.description }
-              links={ project.links } />
+              links={ project.links }
+              roles={ project.roles } />
           </Row>
         </ColumnCentered>
       </ColumnCentered>
@@ -75,11 +76,11 @@ const Project = ({ project }) => (
       }
     </Card>
   </Div>
-);
+)
 
 // todo: import proj prop type
 Project.propTypes = {
   project: PropTypes.object.isRequired
 }
 
-export default withRouter(withCurrentProject(Project));
+export default withRouter(withCurrentProject(Project))

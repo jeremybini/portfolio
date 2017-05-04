@@ -1,21 +1,21 @@
-import { css, StyleSheet } from 'aphrodite';
-import React, { PropTypes } from 'react';
+import { css, StyleSheet } from 'aphrodite'
+import React, { PropTypes } from 'react'
 
-import Card from '../../components/ui/Card';
-import Column from '../../components/ui/Column';
-import Div from '../../components/ui/Div';
-import RowCentered from '../../components/ui/RowCentered';
-import { grayMed, greenDark, greenLight } from '../../utils/colors';
-import screenSize from '../../utils/screenSize';
+import Card from '../../components/ui/Card'
+import Column from '../../components/ui/Column'
+import Div from '../../components/ui/Div'
+import Heading from '../../components/ui/Heading'
+import RowCentered from '../../components/ui/RowCentered'
+import { grayMed, greenDark, greenLight } from '../../utils/colors'
+import screenSize from '../../utils/screenSize'
 
-const { shape, string } = PropTypes;
+const { shape, string } = PropTypes
 
 const sx = StyleSheet.create({
   card: {
     border: `1px solid ${greenDark}`,
     display: 'flex',
     flexDirection: 'column',
-    transition: '0.3s ease',
     ':hover': {
       border: `1px solid ${greenLight}`,
     },
@@ -36,10 +36,10 @@ const sx = StyleSheet.create({
   cardImageContainer: {
     padding: '15px',
     [screenSize.phoneLandscape]: {
-      padding: '40px 80px',
+      padding: '40px 30px',
     },
     [screenSize.min.tablet]: {
-      padding: '30px 60px',
+      padding: '20px 30px',
     }
   },
   roundedBorder: {
@@ -49,25 +49,27 @@ const sx = StyleSheet.create({
     borderBottom: `1px solid ${grayMed}`,
     paddingBottom: '10px',
   },
-});
+})
 
 const CardLine = ({ children, label, content }) => {
-  const contentArray = Array.isArray(content) ? content : [content];
+  const contentArray = Array.isArray(content) ? content : [content]
 
   return (
-    <div className={ css(sx.cardLine) }>
-      { label &&
-        <h4 className={ css(sx.cardLineLabel) }>
-          <span style={{ textDecoration: 'underline' }}>{ label }</span>:
-        </h4>
+    <div className={css(sx.cardLine)}>
+      {
+        label &&
+          <Heading weight={4} styles={sx.cardLineLabel}>
+            <span style={{ textDecoration: 'underline' }}>{label}</span>:
+          </Heading>
       }
       {
         content && contentArray.map(text =>
-          <h3
-            key={ text }
-            className={ css(sx.cardLineContent) }>
-            { text }
-          </h3>
+          <Heading
+            key={text}
+            weight={3}
+            styles={sx.cardLineContent}>
+            {text}
+          </Heading>
         )
       }
       { children }
@@ -76,37 +78,37 @@ const CardLine = ({ children, label, content }) => {
 }
 
 const ProjectCard = ({ project, ...rest }) => (
-  <Card styles={ sx.card }>
-    <Div styles={ [sx.title, sx.inline] }>
-      <h2 style={ { textAlign: 'center' } }>{ project.title }</h2>
+  <Card styles={sx.card}>
+    <Div styles={[sx.title, sx.inline]}>
+      <h2 style={{ textAlign: 'center' }}>{project.title}</h2>
     </Div>
     <Column grow>
       <CardLine
         label={`Role${ project.roles.length > 1 ? 's' : '' }`}
-        content={ project.roles } />
+        content={project.roles.map(r => r.title)} />
       <CardLine
         label='When'
-        content={ project.when } />
+        content={project.when} />
       {
         project.mainImage &&
-        <RowCentered grow styles={ sx.cardImageContainer }>
+        <RowCentered grow styles={sx.cardImageContainer}>
           <img
             alt='project card'
-            src={ project.mainImage }
-            className={ css(sx.cardImage) } />
+            src={project.mainImage}
+            className={css(sx.cardImage)} />
         </RowCentered>
       }
     </Column>
   </Card>
-);
+)
 
 // Todo: expand
 export const projectPropType = shape({
   title: string,
-});
+})
 
 ProjectCard.propTypes = {
   project: projectPropType,
 }
 
-export default ProjectCard;
+export default ProjectCard

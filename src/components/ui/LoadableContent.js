@@ -1,14 +1,14 @@
-import { css, StyleSheet } from 'aphrodite';
-import React, { PropTypes } from 'react';
-import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
+import { css, StyleSheet } from 'aphrodite'
+import React, { PropTypes } from 'react'
+import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup'
 
-import { grayExtraDark } from '../../utils/colors';
+import { grayExtraDark } from '../../utils/colors'
 
-import Cover from './Cover';
-import ErrorMessage from './ErrorMessage';
-import Spinner from './Spinner';
+import Cover from './Cover'
+import ErrorMessage from './ErrorMessage'
+import Spinner from './Spinner'
 
-const { bool, number, shape, string } = PropTypes;
+const { bool, number, shape, string } = PropTypes
 
 const sx = StyleSheet.create({
   hidden: {
@@ -27,12 +27,12 @@ const sx = StyleSheet.create({
   visible: {
     opacity: 1,
   },
-});
+})
 
-const visible = css(sx.visible);
-const hidden = css(sx.hidden);
+const visible = css(sx.visible)
+const hidden = css(sx.hidden)
 
-const ContentLoader = ({ children, error, isLoading }) => (
+const LoadableContent = ({ children, error, isLoading }) => (
   <div>
     <CSSTransitionGroup
       transitionName={ {
@@ -56,7 +56,7 @@ const ContentLoader = ({ children, error, isLoading }) => (
   </div>
 )
 
-ContentLoader.propTypes = {
+LoadableContent.propTypes = {
   error: shape({
     code: number,
     message: string,
@@ -64,4 +64,4 @@ ContentLoader.propTypes = {
   isLoading: bool.isRequired,
 }
 
-export default ContentLoader;
+export default LoadableContent

@@ -1,12 +1,11 @@
-import React, { PropTypes } from 'react';
-import sizeMe from 'react-sizeme';
+import React, { PropTypes } from 'react'
+import sizeMe from 'react-sizeme'
 import {
   layout,
-  measureItems,
-  CSSGrid
-} from 'react-stonecutter';
+  CSSGrid,
+} from 'react-stonecutter'
 
-const Grid = measureItems(CSSGrid, { measureImages: true });
+const Grid = CSSGrid
 
 const GridCentered = ({
   columnWidth,
@@ -16,8 +15,8 @@ const GridCentered = ({
   size,
   ...rest
 }) => {
-  const { columns: numColumns, gutterWidth } = rest;
-  const { width } = size;
+  const { columns: numColumns, gutterWidth } = rest
+  const { width } = size
 
   const maxColumnWidth = columnWidth + 2 * gutterWidth >= width
                            ? width - minPadding - 2 * gutterWidth
@@ -27,9 +26,9 @@ const GridCentered = ({
                   Math.floor(
                     (width - minPadding) /
                     (maxColumnWidth + gutterWidth)
-                  );
+                  )
 
-  duration = !isMobile && duration;
+  duration = !isMobile && duration
 
   return (
     <div style={ { margin: 'auto' } }>
@@ -40,13 +39,13 @@ const GridCentered = ({
         { ...rest } />
     </div>
   )
-};
+}
 
 GridCentered.defaultProps = {
   component: 'ul',
-  duration: 1000,
-  gutterHeight: 1,
-  gutterWidth: 5,
+  duration: 500,
+  gutterHeight: 10,
+  gutterWidth: 10,
   layout: layout.pinterest,
   minPadding: 0,
 }
@@ -55,4 +54,4 @@ GridCentered.propTypes = {
   columnWidth: PropTypes.number.isRequired,
 }
 
-export default sizeMe()(GridCentered);
+export default sizeMe()(GridCentered)
