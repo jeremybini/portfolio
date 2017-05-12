@@ -1,14 +1,11 @@
 import { StyleSheet } from 'aphrodite'
 import React, { PropTypes } from 'react'
 
-
 import Div from '../../components/ui/Div'
 import Heading from '../../components/ui/Heading'
 import Row from '../../components/ui/Row'
 import { gray } from '../../utils/colors'
 import screenSize from '../../utils/screenSize'
-
-import { rolePropType } from './ProjectRole'
 
 const { arrayOf, shape, string } = PropTypes
 
@@ -56,8 +53,7 @@ export const ProjectHeading = ({ project }) => (
       <Div styles={ [sx.projectTitleRow, sx.projectRoles] }>
         {
           // slight hack for adding | between all roles
-          project.roles.map(r => r.title)
-            .join('@@|@@')
+          project.roles.join('@@|@@')
             .split('@@')
             .map((role, index) =>
               <Heading
@@ -86,7 +82,7 @@ export const ProjectHeading = ({ project }) => (
 ProjectHeading.propTypes = {
   project: shape({
     when: string.isRequired,
-    roles: arrayOf(rolePropType).isRequired,
+    roles: arrayOf(string).isRequired,
     title: string.isRequired,
   }).isRequired,
 }

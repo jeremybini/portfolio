@@ -85,7 +85,7 @@ const ProjectCard = ({ project, ...rest }) => (
     <Column grow>
       <CardLine
         label={`Role${ project.roles.length > 1 ? 's' : '' }`}
-        content={project.roles.map(r => r.title)} />
+        content={project.roles} />
       <CardLine
         label='When'
         content={project.when} />

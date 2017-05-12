@@ -9,37 +9,37 @@ import ListItem from '../../components/ui/ListItem'
 const { arrayOf, shape, string } = PropTypes
 
 const sx = StyleSheet.create({
-  projectRole: {
+  projectInfo: {
     marginBottom: '20px',
   },
-  projectRoleTitle: {
+  projectInfoTitle: {
     margin: 0,
   },
-  projectRoleDuties: {
+  projectInfoList: {
     listStyleType: 'initial',
   },
-  projectRoleDuty: {
+  projectInfoItem: {
     marginBottom: '10px',
   },
 })
 
-export const ProjectRole = ({ role }) => (
-  <Column styles={sx.projectRole}>
+export const ProjectInfo = ({ info }) => (
+  <Column styles={sx.projectInfo}>
     <Heading
-      styles={sx.projectRoleTitle}
+      styles={sx.projectInfoTitle}
       weight={4}>
-      {role.title}
+      {info.heading}
     </Heading>
     {
-      role.duties && role.duties.length
+      info.list && info.list.length
         ?
-          <List styles={sx.projectRoleDuties}>
+          <List styles={sx.projectInfoList}>
             {
-              role.duties.map(duty =>
+              info.list.map(item =>
                 <ListItem
-                  key={duty}
-                  styles={sx.projectRoleDuty}>
-                  <p>{duty}</p>
+                  key={item}
+                  styles={sx.projectInfoItem}>
+                  <p>{item}</p>
                 </ListItem>
               )
             }
@@ -49,13 +49,13 @@ export const ProjectRole = ({ role }) => (
   </Column>
 )
 
-export const rolePropType = shape({
-  duties: arrayOf(string),
-  title: string.isRequired,
+export const infoPropType = shape({
+  heading: string.isRequired,
+  list: arrayOf(string),
 })
 
-ProjectRole.propTypes = {
-  role: rolePropType.isRequired,
+ProjectInfo.propTypes = {
+  info: infoPropType.isRequired,
 }
 
-export default ProjectRole
+export default ProjectInfo

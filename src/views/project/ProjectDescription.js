@@ -8,7 +8,7 @@ import Row from '../../components/ui/Row'
 import { green, greenDark } from '../../utils/colors'
 import screenSize from '../../utils/screenSize'
 
-import ProjectRole, { rolePropType } from './ProjectRole'
+import ProjectInfo, { infoPropType } from './ProjectInfo'
 
 const { arrayOf, shape, string } = PropTypes
 
@@ -43,7 +43,7 @@ const sx = StyleSheet.create({
   },
 })
 
-export const ProjectDescription = ({ description, links, roles }) => (
+export const ProjectDescription = ({ description, information, links }) => (
   <Column styles={ sx.projectDescription }>
     {
       description.split('\n').map(section =>
@@ -53,9 +53,9 @@ export const ProjectDescription = ({ description, links, roles }) => (
       )
     }
     {
-      roles && roles.length && roles.some(r => r.duties)
-        ? roles.map(role =>
-          <ProjectRole key={ role.title } role={ role } />
+      information && information.length && information.some(i => i.list)
+        ? information.map(info =>
+          <ProjectInfo key={ info.title } info={ info } />
         )
         : null
     }
@@ -84,7 +84,7 @@ ProjectDescription.propTypes = {
     text: string.isRequired,
     url: string.isRequired,
   })),
-  roles: arrayOf(rolePropType),
+  information: arrayOf(infoPropType),
 }
 
 export default ProjectDescription

@@ -6,29 +6,13 @@ import Column from '../../components/ui/Column'
 import ColumnCentered from '../../components/ui/ColumnCentered'
 import Heading from '../../components/ui/Heading'
 import Link from '../../components/ui/Link'
-import LazyBackgroundImage from '../../components/ui/LazyBackgroundImage'
 import Row from '../../components/ui/Row'
+import withWindow from '../../hocs/withWindow'
+import { grayExtraDark } from '../../utils/colors'
 import screenSize from '../../utils/screenSize'
-
 import HomeLink from './HomeLink'
 
 const sx = StyleSheet.create({
-  contentAppear: {
-    opacity: 0.01,
-    transform: 'translate(0, -10px) scale(1.4)',
-  },
-  contentAppearActive: {
-    opacity: 1,
-    transform: 'translate(0px, 0px) scale(1)',
-    transition: 'transform 2s, opacity 1.5s',
-  },
-  contentLeave: {
-    opacity: 1,
-  },
-  contentLeaveActive: {
-    opacity: 0.01,
-    transition: 'opacity 1500ms ease-in',
-  },
   footer: {
     fontSize: '18px',
     padding: '20px',
@@ -42,9 +26,13 @@ const sx = StyleSheet.create({
     opacity: 1,
     transform: 'matrix(1, 0, 0, 1, 0, 0)',
     transition: 'transform 1s, opacity 0.5s',
-    transitionDelay: '2s',
+    transitionDelay: '1s',
+  },
+  footerEmail: {
+    color: 'white',
   },
   home: {
+    backgroundColor: grayExtraDark,
     color: 'white',
     height: '100%',
     overflow: 'hidden',
@@ -62,6 +50,13 @@ const sx = StyleSheet.create({
   homeTitle: {
     fontSize: '40px',
     fontWeight: '300',
+    transition: 'opacity 2s',
+  },
+  homeTitleAppear: {
+    opacity: 0.01,
+  },
+  homeTitleAppearActive: {
+    opacity: 1,
   },
   linksAppear: {
     opacity: 0.01,
@@ -71,15 +66,12 @@ const sx = StyleSheet.create({
     opacity: 1,
     transform: 'matrix(1, 0, 0, 1, 0, 0)',
     transition: 'transform 1s, opacity 0.5s',
-    transitionDelay: '1.5s',
+    transitionDelay: '.7s',
   },
-  white: {
-    color: 'white',
-  }
 })
 
-const contentAppear = css(sx.contentAppear)
-const contentAppearActive = css(sx.contentAppearActive)
+const homeTitleAppear = css(sx.homeTitleAppear)
+const homeTitleAppearActive = css(sx.homeTitleAppearActive)
 
 const linksAppear = css(sx.linksAppear)
 const linksAppearActive = css(sx.linksAppearActive)
@@ -87,14 +79,14 @@ const linksAppearActive = css(sx.linksAppearActive)
 const footerAppear = css(sx.footerAppear)
 const footerAppearActive = css(sx.footerAppearActive)
 
-const Home = () => (
+const Home = ({ windowData }) => (
   <Column styles={ sx.home }>
     <Column grow justify='space-between'>
-      <ColumnCentered grow styles={ [sx.homeContent, sx.white] }>
+      <ColumnCentered grow styles={ sx.homeContent }>
         <CSSTransitionGroup
           transitionName={ {
-            appear: contentAppear,
-            appearActive: contentAppearActive,
+            appear: homeTitleAppear,
+            appearActive: homeTitleAppearActive,
           } }
           transitionAppear={true}
           transitionAppearTimeout={2000}
@@ -128,17 +120,14 @@ const Home = () => (
           transitionEnter={false}
           transitionLeave={false}>
         <ColumnCentered styles={ sx.footer }>
-          <Link
-            href='mailto:jeremybini@gmail.com'
-            styles={ sx.white }>
+          <Link href='mailto:jeremybini@gmail.com' styles={ sx.footerEmail }>
             jeremybini@gmail.com
           </Link>
         </ColumnCentered>
       </CSSTransitionGroup>
     </Column>
-    <LazyBackgroundImage source='/home_background_optimized.jpg' />
   </Column>
 )
 
-export default Home
+export default withWindow(Home)
 

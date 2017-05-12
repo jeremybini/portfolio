@@ -53,9 +53,10 @@ const sx = StyleSheet.create({
   },
   desktop: {
     padding: '20px 50px',
+    visibility: 'hidden',
     width: '100%',
-    [screenSize.max.phoneLandscape]: {
-      visibility: 'hidden',
+    [screenSize.min.tablet]: {
+      visibility: 'visible',
     }
   },
   link: {
@@ -71,12 +72,16 @@ const sx = StyleSheet.create({
     fontWeight: 400,
   },
   nameContainer: {
+    display: 'none',
     width: '50%',
+    [screenSize.min.tablet]: {
+      display: 'block',
+    },
   },
   photoPage: {
-    paddingRight: '70px',
-    [screenSize.max.phoneLandscape]: {
-      paddingRight: 0,
+    paddingRight: 0,
+    [screenSize.min.tablet]: {
+      paddingRight: '70px',
     }
   },
 })

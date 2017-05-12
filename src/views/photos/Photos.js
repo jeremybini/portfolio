@@ -1,7 +1,6 @@
 import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
 
-import Column from '../../components/ui/Column'
 import ContentLoader from '../../containers/ContentLoader'
 import withImages from '../../hocs/withImages'
 import { fetchImages } from '../../reducers/images'
@@ -11,13 +10,11 @@ import PhotoGallery from './PhotoGallery'
 const { arrayOf, bool, shape, string } = PropTypes
 
 const Photos = ({ fetchImages, images }) => (
-  <Column>
-    <ContentLoader
-      content={images}
-      fetch={fetchImages}>
-      <PhotoGallery images={ images.data } />
-    </ContentLoader>
-  </Column>
+  <ContentLoader
+    content={images}
+    fetch={fetchImages}>
+    <PhotoGallery images={ images.data } />
+  </ContentLoader>
 )
 
 Photos.propTypes = {

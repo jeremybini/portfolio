@@ -63,7 +63,7 @@ const Project = ({ project }) => (
             <ProjectDescription
               description={ project.description }
               links={ project.links }
-              roles={ project.roles } />
+              information={ project.information } />
           </Row>
         </ColumnCentered>
       </ColumnCentered>

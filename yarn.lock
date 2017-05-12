@@ -4390,9 +4390,9 @@ react-lazyload@^2.2.7:
   dependencies:
     prop-types "^15.5.6"
 
-react-medium-image-zoom@^0.9.0:
-  version "0.9.0"
-  resolved "https://registry.yarnpkg.com/react-medium-image-zoom/-/react-medium-image-zoom-0.9.0.tgz#9d776441b5591c51105c2f56936cc4d698a47e97"
+react-medium-image-zoom@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/react-medium-image-zoom/-/react-medium-image-zoom-1.0.3.tgz#87568d937bfaf88cbbc8e210a726107426a58e0d"
 
 react-motion-ui-pack@^0.10.2:
   version "0.10.2"

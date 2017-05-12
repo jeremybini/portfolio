@@ -13,6 +13,7 @@ import { navLinks } from './ScrollingNavBar'
 
 const sx = StyleSheet.create({
   content: {
+    height: '100%',
     transition: '0.5s ease',
     transform: 'translateX(-300px)',
   },
@@ -55,7 +56,7 @@ const MobileNavLink = (props) => (
 
 const NavModal = ({ isOpen, ...rest }) => (
   <Modal styles={ [sx.navModal, isOpen && sx.navModalOpen] } { ...rest }>
-    <ColumnCentered grow styles={ [sx.content, isOpen && sx.contentOpen] }>
+    <ColumnCentered styles={ [sx.content, isOpen && sx.contentOpen] }>
       {
         navLinks.map(({ text, ...rest }) =>
           <MobileNavLink
