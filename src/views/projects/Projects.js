@@ -42,7 +42,7 @@ const sx = StyleSheet.create({
 const Projects = ({ match, projects }) => (
   <Row
     wrap
-    justify='space-between'
+    justify='space-around'
     styles={ sx.projectList }>
     {
       projects.map(project =>

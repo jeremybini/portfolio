@@ -38,7 +38,6 @@ const withWindow = WrappedComponent => (
     }
 
     handleResize(e) {
-      console.log('handling it')
       this.setState({
         windowData: {
           height: window.innerHeight,

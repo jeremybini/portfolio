@@ -5,6 +5,7 @@ import Column from '../../components/ui/Column'
 import Heading from '../../components/ui/Heading'
 import List from '../../components/ui/List'
 import ListItem from '../../components/ui/ListItem'
+import { grayLight } from '../../utils/colors'
 
 const { arrayOf, shape, string } = PropTypes
 
@@ -13,7 +14,9 @@ const sx = StyleSheet.create({
     marginBottom: '20px',
   },
   projectInfoTitle: {
+    backgroundColor: grayLight,
     margin: 0,
+    padding: '7px',
   },
   projectInfoList: {
     listStyleType: 'initial',
@@ -25,11 +28,14 @@ const sx = StyleSheet.create({
 
 export const ProjectInfo = ({ info }) => (
   <Column styles={sx.projectInfo}>
-    <Heading
-      styles={sx.projectInfoTitle}
-      weight={4}>
-      {info.heading}
-    </Heading>
+    {
+      info.heading &&
+      <Heading
+        styles={sx.projectInfoTitle}
+        weight={4}>
+        {info.heading}
+      </Heading>
+    }
     {
       info.list && info.list.length
         ?
@@ -50,7 +56,7 @@ export const ProjectInfo = ({ info }) => (
 )
 
 export const infoPropType = shape({
-  heading: string.isRequired,
+  heading: string,
   list: arrayOf(string),
 })
 

@@ -14,8 +14,8 @@ import screenSize from '../../utils/screenSize'
 import PhotoPlaceholder from './PhotoPlaceholder'
 
 // ImageZoom/aphrodite compatability issue
-// Style defined directly on image
-const imageStyle = {
+// Style defined directly on photo
+const photoStyle = {
   borderRadius: '4px',
   width: '100%',
   maxWidth: '100%',
@@ -33,7 +33,7 @@ const sx = StyleSheet.create({
     }
   },
   photoGalleryImage: {
-    ...imageStyle,
+    ...photoStyle,
     marginBottom: '10px',
   },
 })
@@ -57,16 +57,16 @@ const getResizedHeight = ({ maxHeight, maxWidth }, resizedWidth) =>
   (maxHeight / maxWidth ) * resizedWidth
 
 // Find first img greater than or equal to the required thumbnail width
-const getThumbnailSrc = (image, thumbWidth) =>
-  image.sizes
+const getThumbnailSrc = (photo, thumbWidth) =>
+  photo.sizes
     .sort((a, b) => a.width > b.width)
     .find(size => size.width >= thumbWidth).src
 
-const PhotoGallery = ({ images, windowData }) => {
+const PhotoGallery = ({ photos, windowData }) => {
   const windowWidth = windowData.width
   const isMobile = windowWidth <= screenSize.widths.phoneLandscape.max
   const isDesktop = windowWidth >= screenSize.widths.desktop.min
-  const imageWidth = isMobile ? windowWidth - 20 : isDesktop ? 400 : 300
+  const photoWidth = isMobile ? windowWidth - 20 : isDesktop ? 400 : 300
 
   return (
     <Div styles={sx.photoGallery}>
@@ -75,20 +75,20 @@ const PhotoGallery = ({ images, windowData }) => {
           ?
             <Column>
               {
-                images.map((image, index) => {
-                  const resizedHeight = getResizedHeight(image, imageWidth)
-                  const srcSet = buildSrcSet(image)
-                  const thumbnailSrc = getThumbnailSrc(image, windowWidth)
+                photos.map((photo, index) => {
+                  const resizedHeight = getResizedHeight(photo, photoWidth)
+                  const srcSet = buildSrcSet(photo)
+                  const thumbnailSrc = getThumbnailSrc(photo, windowWidth)
 
                   return (
                     <LazyLoad
-                      key={image.id}
+                      key={photo.id}
                       height={resizedHeight}
                       offset={100}
                       style={{position:'relative'}}
                       placeholder={<PhotoPlaceholder height={resizedHeight} />}>
                       <Img
-                        alt={image.title}
+                        alt={photo.title}
                         src={thumbnailSrc}
                         srcSet={srcSet}
                         styles={sx.photoGalleryImage} />
@@ -98,21 +98,21 @@ const PhotoGallery = ({ images, windowData }) => {
               }
             </Column>
           :
-            <GridCentered columnWidth={imageWidth}>
+            <GridCentered columnWidth={photoWidth}>
               {
-                images.map((image, index) => {
-                  const resizedHeight = getResizedHeight(image, imageWidth)
-                  const srcSet = buildSrcSet(image)
-                  const thumbnailSrc = getThumbnailSrc(image, imageWidth)
+                photos.map((photo, index) => {
+                  const resizedHeight = getResizedHeight(photo, photoWidth)
+                  const srcSet = buildSrcSet(photo)
+                  const thumbnailSrc = getThumbnailSrc(photo, photoWidth)
 
                   return (
                     <li
-                      key={image.id}
+                      key={photo.id}
                       itemHeight={resizedHeight}
                       // Style goes here due to compatability
                       // issue with ImageZoom and aphrodite className
                       style={{
-                        maxWidth: imageWidth,
+                        maxWidth: photoWidth,
                         width: '100%',
                       } }>
                       <LazyLoad
@@ -125,16 +125,16 @@ const PhotoGallery = ({ images, windowData }) => {
                         }>
                         <ImageZoom
                           image={{
-                            alt: image.title,
+                            alt: photo.title,
                             src: thumbnailSrc,
                             srcSet,
-                            sizes: `${imageWidth}px`,
-                            style: imageStyle,
+                            sizes: `${photoWidth}px`,
+                            style: photoStyle,
                           }}
                           zoomImage={{
-                            alt: image.title,
+                            alt: photo.title,
                             srcSet,
-                            sizes: buildZoomSizes(image, windowData),
+                            sizes: buildZoomSizes(photo, windowData),
                           }}
                         />
                       </LazyLoad>
@@ -149,7 +149,7 @@ const PhotoGallery = ({ images, windowData }) => {
 }
 
 PhotoGallery.propTypes = {
-  images: PropTypes.array.isRequired,
+  photos: PropTypes.array.isRequired,
 }
 
 export default withWindow(PhotoGallery)

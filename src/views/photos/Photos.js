@@ -2,23 +2,23 @@ import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
 
 import ContentLoader from '../../containers/ContentLoader'
-import withImages from '../../hocs/withImages'
-import { fetchImages } from '../../reducers/images'
+import withPhotos from '../../hocs/withPhotos'
+import { fetchPhotos } from '../../reducers/photos'
 
 import PhotoGallery from './PhotoGallery'
 
 const { arrayOf, bool, shape, string } = PropTypes
 
-const Photos = ({ fetchImages, images }) => (
+const Photos = ({ fetchPhotos, photos }) => (
   <ContentLoader
-    content={images}
-    fetch={fetchImages}>
-    <PhotoGallery images={ images.data } />
+    content={photos}
+    fetch={fetchPhotos}>
+    <PhotoGallery photos={ photos.data } />
   </ContentLoader>
 )
 
 Photos.propTypes = {
-  images: shape({
+  photos: shape({
     data: arrayOf(shape({
       id: string,
     })),
@@ -34,5 +34,5 @@ Photos.propTypes = {
 
 export default connect(
   null,
-  { fetchImages }
-)(withImages(Photos))
+  { fetchPhotos }
+)(withPhotos(Photos))

@@ -6,12 +6,13 @@ import React, { Component, PropTypes } from 'react'
 
 import Div from '../../components/ui/Div'
 import Row from '../../components/ui/Row'
+import withWindow from '../../hocs/withWindow'
 import aphroditePropType from '../../utils/aphroditePropType'
 import screenSize from '../../utils/screenSize'
 
 import './ProjectCarousel.css'
 
-const { arrayOf, shape, string } = PropTypes
+const { arrayOf, object, shape, string } = PropTypes
 
 const defaultOptions = {
   accessibility: true,
@@ -66,6 +67,7 @@ class ProjectCarousel extends Component {
       src: string.isRequired,
     })).isRequired,
     styles: aphroditePropType,
+    windowData: object,
   }
 
   // TODO: Find workaround for this hack
@@ -84,7 +86,7 @@ class ProjectCarousel extends Component {
   }
 
   render() {
-    const { images, options, styles } = this.props
+    const { images, options, windowData, styles } = this.props
     const carouselOptions = {
       ...defaultOptions,
       ...options,
@@ -96,16 +98,25 @@ class ProjectCarousel extends Component {
           {
             images.map(({ alt, src }, index) =>
               <Div styles={ [sx.imageContainer, styles] } key={ src }>
-                <ImageZoom
-                  image={ {
-                    alt: alt,
-                    className: css(sx.image),
-                    src: src,
-                  } }
-                  zoomImage={ {
-                    alt: alt,
-                    src: src,
-                  } } />
+                {
+                  windowData.width < screenSize.widths.phoneLandscape.max
+                    ?
+                      <ImageZoom
+                        image={ {
+                          alt: alt,
+                          className: css(sx.image),
+                          src: src,
+                        } }
+                        zoomImage={ {
+                          alt: alt,
+                          src: src,
+                        } } />
+                    :
+                      <img
+                        alt={ alt }
+                        className={ css(sx.image) }
+                        src={ src} />
+                }
               </Div>
             )
           }
@@ -115,4 +126,4 @@ class ProjectCarousel extends Component {
   }
 }
 
-export default ProjectCarousel
+export default withWindow(ProjectCarousel)

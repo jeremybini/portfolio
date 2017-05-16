@@ -55,7 +55,7 @@ export const ProjectDescription = ({ description, information, links }) => (
     {
       information && information.length && information.some(i => i.list)
         ? information.map(info =>
-          <ProjectInfo key={ info.title } info={ info } />
+          <ProjectInfo key={ info.list } info={ info } />
         )
         : null
     }

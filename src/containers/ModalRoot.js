@@ -2,7 +2,7 @@ import React from 'react'
 import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 
-import ImageFilterModal from '../components/ImageFilterModal'
+import PhotoFilterModal from '../components/PhotoFilterModal'
 import NavModal from '../components/NavModal'
 import ModalControls from '../components/ModalControls'
 import { modalTypes, toggleModal } from '../reducers/modal'
@@ -20,7 +20,7 @@ const ModalRoot = ({ modalType, toggleModal }) => {
       onFilterClick={ () => toggleModal(IMAGE_FILTER) }
       onHamburgerClick={ () => toggleModal(NAV) }>
       <NavModal isOpen={ navIsActive } />
-      <ImageFilterModal isOpen={ filterIsActive } />
+      <PhotoFilterModal isOpen={ filterIsActive } />
     </ModalControls>
   )
 }

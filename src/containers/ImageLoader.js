@@ -14,7 +14,7 @@ class ImageLoader extends Component {
     return <img
       alt=''
       onLoad={ this.props.onLoad }
-      src={ this.props.source }
+      src={ this.props.src }
       style={ { display: 'none'} }
       />
   }
@@ -22,7 +22,7 @@ class ImageLoader extends Component {
 
 ImageLoader.propTypes = {
   onLoad: PropTypes.func.isRequired,
-  source: PropTypes.string.isRequired,
+  src: PropTypes.string.isRequired,
 }
 
 export default ImageLoader

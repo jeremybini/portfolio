@@ -1,10 +1,26 @@
-import npmLogo from '../assets/images/npm_logo.png'
-import zipdrugScreens from '../assets/images/zd_screens_large.png'
-import zipdrugScreen1 from '../assets/images/screen1.png'
-import zipdrugScreen2 from '../assets/images/screen2.png'
-import zipdrugScreen3 from '../assets/images/screen3.png'
-import zipdrugScreen4 from '../assets/images/screen4.png'
-import zipdrugProviderGif from '../assets/images/zd_provider_onboarding.gif'
+/* eslint-disable max-len */
+import fireframeScreens from '../assets/images/projects/fireframe/fireframe_screens.png'
+import fireframeWorkspace from '../assets/images/projects/fireframe/fireframe_workspace_1280x671.jpg'
+import fireframeProjectView from '../assets/images/projects/fireframe/fireframe_project_view_767x1006.jpg'
+import fireframeCollaborationGif from '../assets/images/projects/fireframe/fireframe_collaboration.gif'
+
+import npmLogo from '../assets/images/projects/mongoBulk/npm_logo.png'
+
+import portfolioScreens from '../assets/images/projects/portfolio/portfolio_screens.png'
+
+import routeTrackerWall from '../assets/images/projects/routeTracker/route_tracker_view_wall_1619x1151.jpg'
+import routeTrackerAdd from '../assets/images/projects/routeTracker/route_tracker_add_route_1800x1252.jpg'
+import routeTrackerEdit from '../assets/images/projects/routeTracker/route_tracker_edit_route_800x1407.jpg'
+import routeTrackerProfile from '../assets/images/projects/routeTracker/route_tracker_profile_799x1412.jpg'
+import routeTrackerScreens from '../assets/images/projects/routeTracker/route_tracker_screens.png'
+
+import zipdrugScreens from '../assets/images/projects/zipdrug/zd_screens_large.png'
+import zipdrugSiteHome from '../assets/images/projects/zipdrug/zd_site_home_1095x756.jpg'
+import zipdrugProvider1 from '../assets/images/projects/zipdrug/zd_provider_onboarding_1_761x1354.jpg'
+import zipdrugProvider2 from '../assets/images/projects/zipdrug/zd_provider_onboarding_2_762x1353.jpg'
+import zipdrugProvider3 from '../assets/images/projects/zipdrug/zd_provider_onboarding_3_761x1353.jpg'
+import zipdrugProviderGif from '../assets/images/projects/zipdrug/zd_provider_onboarding.gif'
+/* eslint-enable max-len */
 
 export default [
   {
@@ -12,26 +28,26 @@ export default [
                  'and by the end of 2016 I was also given the role of ' +
                  'Platform Lead. I participated in a complete rebuild of ' +
                  'our API, as well as assisting with two ground-up builds ' +
-                 'of external web portals.\nMy duties included:',
+                 'of external web portals.',
     images: [
       {
-        alt: 'photo',
-        src: zipdrugScreen1,
+        alt: 'zipdrug home',
+        src: zipdrugSiteHome,
       },
       {
-        alt: 'photo',
-        src: zipdrugScreen2,
+        alt: 'zipdrug onboarding 1',
+        src: zipdrugProvider1,
       },
       {
-        alt: 'photo',
-        src: zipdrugScreen3,
+        alt: 'zipdrug onboarding 2',
+        src: zipdrugProvider2,
       },
       {
-        alt: 'photo',
-        src: zipdrugScreen4,
+        alt: 'zipdrug onboarding 3',
+        src: zipdrugProvider3,
       },
       {
-        alt: 'provider_onboarding',
+        alt: 'zipdrug provider onboarding gif',
         src: zipdrugProviderGif,
       }
     ],
@@ -135,7 +151,128 @@ export default [
     when: 'March 2017',
   },
   {
-    description: 'I designed and built this site this site with React/Redux ' +
+    description: 'Have you ever felt like your team uses email ' +
+                 'for everything, and designs end up getting lost ' +
+                 'in your inbox? Fireframe solves this problem with ' +
+                 'its web based design collaboration platform.\n' +
+                 'Without any previous knowledge, non-designers can ' +
+                 'quickly create wireframes that designers can easily ' +
+                 'understand and further develop. This facilitates the ' +
+                 'creative process for both designers and non-designers ' +
+                 'alike; therefore, reducing the number of iterations needed ' +
+                 'to come up with a design.',
+    images: [
+      {
+        alt: 'fireframe workspace',
+        src: fireframeWorkspace,
+      },
+      {
+        alt: 'fireframe project view',
+        src: fireframeProjectView,
+      },
+      {
+        alt: 'fireframe editor collaboration gif',
+        src: fireframeCollaborationGif,
+      },
+    ],
+    information: [
+      {
+        heading: 'Fullstack Developer',
+        list: [
+          'Designed a real time, collaborative wireframing application ' +
+          'with a custom editing suite for quick and easy mockups',
+
+          'Implemented a version control system, complete with project ' +
+          'forking and branch history. Snapshots are taken for each version ' +
+          'so team members can visualize the full history of a project.',
+
+          'Responsible for the architecture of the wireframe components ' +
+          'using AngularJS, Firebase integration to allow real-time ' +
+          'collaboration, and backend modeling for the version control system',
+        ]
+      }
+    ],
+    links: [
+      {
+        text: 'Github',
+        url: 'https://github.com/gerickson808/fireframe',
+      },
+      {
+        text: 'Video Presentation',
+        url: 'https://www.fullstackacademy.com/final-projects/fireframe',
+      },
+
+    ],
+    mainImage: fireframeScreens,
+    roles: [
+      'Fullstack Developer'
+    ],
+    title: 'Fireframe',
+    technologies: [
+      'NodeJS', 'AngularJS', 'Express', 'MongoDB', 'Mongoose', 'Firebase',
+      'HTML5/SCSS', 'PhantomJS', 'S3', 'Bootstrap', 'InteractJS',
+      'Mocha/Chai/Jasmine'
+    ],
+    when: 'April 2016',
+  },
+  {
+    description: 'RouteTracker is an application I developed while working ' +
+                 'as a routesetter and manager in climbing gyms throughout ' +
+                 'New York City',
+    images: [
+      {
+        alt: 'route tracker wall view',
+        src: routeTrackerWall,
+      },
+      {
+        alt: 'router tracker add new climb',
+        src: routeTrackerAdd,
+      },
+      {
+        alt: 'route tracker profile',
+        src: routeTrackerProfile,
+      },
+      {
+        alt: 'route tracker edit climb',
+        src: routeTrackerEdit,
+      },
+    ],
+    information: [
+      {
+        list: [
+          'Created a custom climbing route tracking system for Brooklyn ' +
+          'Boulders',
+
+          'It allows for creation, archiving, and bookkeeping of indoor ' +
+          'climbing routes by 3 different levels of administrators',
+
+          'Data visualizations were generated using Highcharts for ' +
+          'easy-to-read metrics',
+
+          'Users can log ascents, and view graphs of their performance ' +
+          'over time'
+        ]
+      }
+    ],
+    links: [
+      {
+        text: 'RouteTracker Sample App',
+        url: 'https://climbing-route-database.herokuapp.com/',
+      },
+    ],
+    mainImage: routeTrackerScreens,
+    roles: [
+      'Sole Developer'
+    ],
+    title: 'RouteTracker',
+    technologies: [
+      'Ruby on Rails', 'Postgres', 'JavaScript', 'jQuery', 'Git', 'SCSS'
+    ],
+    when: 'July 2015',
+  },
+
+  {
+    description: 'I designed and built this site with React/Redux ' +
                  'exploring different design patterns and best practices.',
     images: [],
     information: [
@@ -157,7 +294,7 @@ export default [
         url: 'https://github.com/jeremybini/portfolio',
       },
     ],
-    mainImage: null,
+    mainImage: portfolioScreens,
     roles: [
       'Sole Developer'
     ],
@@ -166,44 +303,5 @@ export default [
       'React', 'Redux', 'React-Router', 'Aphrodite', 'Git', 'AWS', 'Photoshop',
     ],
     when: 'April 2017',
-  },
-  {
-    description: 'RouteTracker is an application I developed while working ' +
-                 'as a routesetter and manager in climbing gyms throughout ' +
-                 'New York City',
-    images: [],
-    information: [
-      {
-        list: [
-          'Created a custom climbing route tracking system for Brooklyn ' +
-          'Boulders',
-
-          'It allows for creation, archiving, and bookkeeping of indoor ' +
-          'climbing routes by 3 different levels of administrators',
-
-          'Data visualizations were generated using Highcharts for ' +
-          'easy-to-read metrics',
-
-          'Users can log ascents, and view graphs of their performance ' +
-          'over time'
-        ]
-      }
-    ],
-    links: [
-      {
-        text: 'RouteTracker Sample',
-        url: 'https://climbing-route-database.herokuapp.com/',
-      },
-    ],
-    mainImage: null,
-    roles: [
-      'Sole Developer'
-    ],
-    screenShots: [],
-    title: 'RouteTracker',
-    technologies: [
-      'Ruby on Rails', 'Postgres', 'JavaScript', 'jQuery', 'Git', 'SCSS'
-    ],
-    when: 'July 2015',
   },
 ]
