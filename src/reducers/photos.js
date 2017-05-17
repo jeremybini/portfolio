@@ -64,7 +64,8 @@ export default handleActions({
 
 /* Action Creators */
 export const fetchPhotos = createAction(FETCH_PHOTOS, () =>
-  Promise.resolve(photoData) // To be replaced when server built
+  // To be replaced when server built
+  Promise.resolve(photoData)
 )
 
 export const setPhotoFilter = createAction(SET_PHOTO_FILTER)
