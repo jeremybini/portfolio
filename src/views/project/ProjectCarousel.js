@@ -81,7 +81,9 @@ class ProjectCarousel extends Component {
 
     setTimeout(() => {
       window.dispatchEvent(new Event('resize'))
-      setTimeout(() => this.refs.slider.slickNext(), speed)
+      setTimeout(() =>
+        this.refs.slider && this.refs.slider.slickNext()
+      , speed)
     }, 0)
   }
 
